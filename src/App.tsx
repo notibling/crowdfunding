@@ -4,8 +4,16 @@
  */
 
 import React, { useState } from 'react';
-import { Youtube, Twitter, Facebook, Instagram, Mail, ChevronRight, X, ZoomIn } from 'lucide-react';
+import { Youtube, Twitter, Facebook, Instagram, Mail, ChevronRight, X, ZoomIn, ArrowLeft, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
+
+// Swiper
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, Autoplay, EffectCoverflow } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/effect-coverflow';
 
 export function HeroSection() {
   return (
@@ -348,109 +356,83 @@ export function CompaniesSection() {
 }
 
 export function ScreenshotsSection() {
-  const [selected, setSelected] = useState<number | null>(null);
-
-  const current = selected !== null ? screenshots[selected] : null;
-
-  const prev = () =>
-    setSelected((s) => (s !== null ? (s - 1 + screenshots.length) % screenshots.length : 0));
-
-  const next = () =>
-    setSelected((s) => (s !== null ? (s + 1) % screenshots.length : 0));
-
   return (
-    <section className="bg-[#111318] px-6 py-28">
-      <div className="max-w-5xl mx-auto">
-        <p className="text-[#FFCC00] text-xs font-semibold tracking-[0.3em] uppercase mb-4 text-center">
-          En desarrollo
-        </p>
-        <h2 className="text-white text-4xl md:text-5xl font-black text-center leading-tight mb-4">
-          Así se ve Bling por dentro.
-        </h2>
-        <p className="text-slate-400 text-center text-lg mb-14 max-w-xl mx-auto">
-          Capturas reales del trabajo de más de tres años. Hacé click para ampliar.
-        </p>
+    <section className="bg-[#111318] px-6 py-28 border-t border-white/5 overflow-hidden">
+      <div className="max-w-6xl mx-auto">
+        <div className="text-center mb-16">
+          <p className="text-[#FFCC00] text-xs font-semibold tracking-[0.3em] uppercase mb-4">
+            En desarrollo
+          </p>
+          <h2 className="text-white text-4xl md:text-5xl font-black leading-tight mb-4">
+            Así se ve Bling por dentro.
+          </h2>
+          <p className="text-slate-400 text-lg max-w-xl mx-auto">
+            Capturas reales del trabajo de más de tres años. Deslizá para ver más.
+          </p>
+        </div>
 
-        {/* Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-          {screenshots.map((s, i) => (
-            <button
-              key={i}
-              onClick={() => setSelected(i)}
-              className="group relative aspect-video overflow-hidden rounded-lg border border-slate-800 hover:border-[#FFCC00]/40 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-[#FFCC00]/50"
-            >
-              <img
-                src={s.src}
-                alt={s.alt}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-              {/* Overlay hover */}
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300 flex items-center justify-center">
-                <ZoomIn
-                  size={28}
-                  className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                />
-              </div>
-              {/* Caption */}
-              <div className="absolute bottom-0 left-0 right-0 bg-linear-to-t from-black/80 to-transparent px-3 py-2 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                <p className="text-white text-xs font-semibold">{s.caption}</p>
-              </div>
-            </button>
-          ))}
+        <div className="relative px-4 md:px-12">
+          <Swiper
+            effect={'coverflow'}
+            grabCursor={true}
+            centeredSlides={true}
+            slidesPerView={'auto'}
+            coverflowEffect={{
+              rotate: 30,
+              stretch: 0,
+              depth: 100,
+              modifier: 1,
+              slideShadows: true,
+            }}
+            navigation={{
+              nextEl: '.swiper-button-next-custom',
+              prevEl: '.swiper-button-prev-custom',
+            }}
+            pagination={{ clickable: true, dynamicBullets: true }}
+            autoplay={{
+              delay: 4000,
+              disableOnInteraction: false,
+            }}
+            modules={[EffectCoverflow, Pagination, Navigation, Autoplay]}
+            className="w-full py-12"
+          >
+            {screenshots.map((s, i) => (
+              <SwiperSlide key={i} className="max-w-[300px] sm:max-w-[500px] md:max-w-[700px]">
+                <div className="group relative aspect-video overflow-hidden rounded-xl border border-white/10 bg-slate-900 shadow-2xl">
+                  <img
+                    src={s.src}
+                    alt={s.alt}
+                    className="w-full h-full object-cover"
+                  />
+                  {/* Overlay con caption al hacer hover */}
+                  <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                    <p className="text-[#FFCC00] text-xs font-bold tracking-widest uppercase mb-2">Captura #{i + 1}</p>
+                    <h3 className="text-white text-xl font-bold">{s.caption}</h3>
+                  </div>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+
+          {/* Botones de navegación personalizados */}
+          <button className="swiper-button-prev-custom absolute left-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center rounded-full bg-white/5 border border-white/10 text-white hover:bg-[#FFCC00] hover:text-[#0D0F14] transition-all duration-300 cursor-pointer hidden md:flex">
+            <ArrowLeft size={20} />
+          </button>
+          <button className="swiper-button-next-custom absolute right-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center rounded-full bg-white/5 border border-white/10 text-white hover:bg-[#FFCC00] hover:text-[#0D0F14] transition-all duration-300 cursor-pointer hidden md:flex">
+            <ArrowRight size={20} />
+          </button>
         </div>
       </div>
 
-      {/* Modal */}
-      {current && (
-        <div
-          className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4"
-          onClick={() => setSelected(null)}
-        >
-          <div
-            className="relative max-w-5xl w-full"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Cerrar */}
-            <button
-              onClick={() => setSelected(null)}
-              className="absolute -top-10 right-0 text-slate-400 hover:text-white transition-colors"
-            >
-              <X size={24} />
-            </button>
-
-            {/* Imagen */}
-            <div className="relative w-full aspect-video rounded-lg overflow-hidden bg-black/40">
-              <img
-                src={current.src}
-                alt={current.alt}
-                className="w-full h-full object-contain"
-              />
-            </div>
-
-            {/* Caption + navegación */}
-            <div className="flex items-center justify-between mt-4 px-1">
-              <button
-                onClick={prev}
-                className="text-slate-400 hover:text-[#FFCC00] text-sm font-semibold transition-colors"
-              >
-                ← Anterior
-              </button>
-              <p className="text-slate-400 text-sm font-medium">{current.caption}</p>
-              <button
-                onClick={next}
-                className="text-slate-400 hover:text-[#FFCC00] text-sm font-semibold transition-colors"
-              >
-                Siguiente →
-              </button>
-            </div>
-
-            {/* Contador */}
-            <p className="text-center text-slate-600 text-xs mt-2">
-              {selected! + 1} / {screenshots.length}
-            </p>
-          </div>
-        </div>
-      )}
+      <style>{`
+        .swiper-pagination-bullet {
+          background: rgba(255, 255, 255, 0.2);
+          opacity: 1;
+        }
+        .swiper-pagination-bullet-active {
+          background: #FFCC00 !important;
+        }
+      `}</style>
     </section>
   );
 }
