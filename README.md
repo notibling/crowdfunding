@@ -2,19 +2,30 @@
 <img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
 </div>
 
-# Run and deploy your BlingCompany app
+# Bling Crowdfunding
 
-This contains everything you need to run your app locally.
+Esta es la landing page oficial de la campaña de crowdfunding de Bling. Aquí encontrarás todo lo necesario para correr el proyecto localmente y colaborar con el futuro de los medios independientes.
 
-View your app in BlingCompany: https://bling.uy
+Visita la web en: [bling.uy](https://bling.uy)
 
-## Run Locally
+## Cómo correr localmente
 
-**Prerequisites:**  Node.js
+**Requisitos previos:** Node.js (v18 o superior recomendado)
 
+1. **Instalar dependencias:**
+   ```bash
+   npm install
+   ```
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+2. **Configurar variables de entorno:**
+   Crea un archivo `.env` basado en `.env.example` y configura las variables necesarias.
+
+3. **Ejecutar en modo desarrollo:**
+   ```bash
+   npm run dev
+   ```
+
+4. **Construir para producción:**
+   ```bash
+   npm run build
+   ```
