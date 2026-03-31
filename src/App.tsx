@@ -20,20 +20,11 @@ export function HeroSection() {
       />
       
       {/* Capas de gradiente para profundidad */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0D0F14]/80 via-[#0D0F14]/40 to-[#0D0F14] pointer-events-none" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#0D0F14_100%)] opacity-60 pointer-events-none" />
-
-      {/* Elementos decorativos animados */}
-      <div className="absolute inset-0 pointer-events-none">
-        <motion.div 
-          animate={{ 
-            scale: [1, 1.2, 1],
-            opacity: [0.08, 0.1, 0.08] 
-          }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#FFCC00] rounded-full blur-[150px]" 
-        />
-        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#FFCC00]/20 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0D0F14]/20 via-[#0D0F14]/40 to-[#0D0F14] pointer-events-none" >
+     
+     
+       
+        
       </div>
 
       <div className="relative z-10 max-w-5xl mx-auto">
@@ -43,7 +34,7 @@ export function HeroSection() {
           transition={{ duration: 0.6 }}
         >
           <span className="inline-block py-1 px-3 rounded-full bg-[#FFCC00]/10 border border-[#FFCC00]/20 text-[#FFCC00] text-[10px] md:text-xs font-bold tracking-[0.3em] uppercase mb-8">
-            Programa de Crowdfunding 2024
+            Programa de Crowdfunding BLING 2026
           </span>
         </motion.div>
 
@@ -51,7 +42,7 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-white text-4xl md:text-7xl font-semibold leading-[0.95] tracking-tighter mb-8"
+          className="text-white text-4xl md:text-7xl text-shadow-2xs font-semibold leading-[0.95] tracking-tighter mb-8"
         >
           LA INFORMACIÓN LIBRE<br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFCC00] via-[#FFE066] to-[#FFCC00] bg-[length:200%_auto] animate-gradient-x">
@@ -59,15 +50,22 @@ export function HeroSection() {
           </span>
         </motion.h1>
 
-        <motion.p 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-slate-400 text-lg md:text-2xl font-medium max-w-2xl mx-auto leading-relaxed mb-12"
-        >
-          Llevamos más de tres años construyendo la plataforma que los medios independientes necesitan. 
-          <span className="text-white"> Hoy te invitamos a ser parte del primer año.</span>
-        </motion.p>
+       <motion.p 
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.8, delay: 0.4 }}
+  className="text-slate-200 text-lg text-shadow-2xs md:text-2xl font-medium max-w-2xl mx-auto leading-relaxed mb-12"
+>
+  <span className=" px-2 py-0.5">
+    Hay periodistas con historias importantes que contar
+    <br/>y sin un lugar propio donde contarlas.
+    <br/>Eso es lo que llevamos tres años tratando de cambiar.
+  </span>
+  <br/><br/>
+  <span className=" px-2  text-transparent bg-clip-text bg-gradient-to-r from-[#FFCC00] via-[#ffe53a] to-[#FFCC00] bg-[length:150%_auto] animate-gradient-x    text-2xl text-shadow-2xs md:text-2xl">
+    Hoy te invitamos a ser parte del primer año.
+  </span>
+</motion.p>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -260,8 +258,8 @@ export function CTASection() {
         >
           Colaborar ahora →
         </a>
-        <p className="text-slate-500 text-sm mt-6 font-medium">
-          paypal.me/notibling · Preguntas: hello@bling.uy
+        <p className="text-slate-300 text-xl mt-6 font-medium">
+          <a href="https://paypal.me/notibling" target="_blank" rel="noopener noreferrer" className="hover:text-[#FFCC00] transition-colors">paypal.me/notibling</a> · ¿Preguntas? <a href="mailto:hello@bling.uy" className="hover:text-[#FFCC00] transition-colors">hello@bling.uy</a>
         </p>
       </div>
     </section>
@@ -270,49 +268,80 @@ export function CTASection() {
 
 export function ClosingSection() {
   return (
-    <section className="bg-[#0D0F14] px-6 py-28 text-center">
-      <div className="max-w-2xl mx-auto">
-        <div className="w-10 h-px bg-[#FFCC00]/40 mx-auto mb-10" />
-        <p className="text-[#ffcc00] font-bold text-lg leading-relaxed mb-8">
-          Llegaste hasta acá. Eso, en sí mismo, ya significa mucho.
-        </p>
-        <p className="text-white text-xl leading-relaxed font-medium mb-8">
-          Hayas decidido colaborar o no, gracias por leer. Por tomarte el tiempo de entender qué estamos construyendo y por qué lo estamos haciendo así. Proyectos como Bling solo tienen sentido si hay personas que crean que la información libre importa &#8278; y vos sos una de ellas.
-        </p>
-        <p className="text-slate-400 text-lg leading-relaxed font-medium">
-          Si algún día usás la plataforma, si compartís esto con alguien, o si simplemente seguís de cerca lo que estamos haciendo, ya sos parte de esto.
-        </p>
-        <div className="w-10 h-px bg-[#FFCC00]/40 mx-auto mt-10 mb-8" />
-        <p className=" font-black text-3xl tracking-tight flex flex-row items-center justify-center gap-1 mb-8">
-         <span className="text-[#FFCC00]">&#8278;</span><span className="text-[#FFFFFF]">TEAMBLING</span><span className="text-[#FFCC00] scale-x-[-1]">&#8278;</span>
-        </p>
-        
-        <div className="flex justify-center items-center gap-6 mb-8">
-          <a href="https://www.youtube.com/@notibling" target="_blank" rel="noopener noreferrer" className="text-slate-500 hover:text-[#FFCC00] transition-colors duration-200" aria-label="YouTube">
-            <Youtube size={24} />
-          </a>
-          <a href="https://x.com/notibling" target="_blank" rel="noopener noreferrer" className="text-slate-500 hover:text-[#FFCC00] transition-colors duration-200" aria-label="X (Twitter)">
-            <Twitter size={24} />
-          </a>
-          <a href="https://www.facebook.com/blingnews" target="_blank" rel="noopener noreferrer" className="text-slate-500 hover:text-[#FFCC00] transition-colors duration-200" aria-label="Facebook">
-            <Facebook size={24} />
-          </a>
-          <a href="https://instagram.com/noti.bling" target="_blank" rel="noopener noreferrer" className="text-slate-500 hover:text-[#FFCC00] transition-colors duration-200" aria-label="Instagram">
-            <Instagram size={24} />
-          </a>
-          <a href="mailto:hello@bling.uy" className="text-slate-500 hover:text-[#FFCC00] transition-colors duration-200" aria-label="Email">
-            <Mail size={24} />
-          </a>
-        </div>
+  <section className="bg-[#0D0F14] px-6 py-28 text-center">
+  <div className="max-w-2xl mx-auto">
+    <div className="w-10 h-px bg-[#FFCC00]/40 mx-auto mb-10" />
+    <p className="text-[#ffcc00] font-bold text-xl leading-relaxed mb-8">
+      Llegaste hasta acá. Eso, en sí mismo, ya significa mucho.
+    </p>
+    <p className="text-white text-xl leading-relaxed font-medium mb-8">
+      Hayas decidido colaborar o no, gracias por leer. Por tomarte el tiempo de entender qué estamos construyendo y por qué lo estamos haciendo así. Proyectos como Bling solo tienen sentido si hay personas que crean que la información libre importa &#8278; y vos sos una de ellas.
+    </p>
+    <p className="text-slate-400 text-lg leading-relaxed font-medium">
+      Si algún día usás la plataforma, si compartís esto con alguien, o si simplemente seguís de cerca lo que estamos haciendo, ya sos parte de esto.
+    </p>
+    <div className="w-10 h-px bg-[#FFCC00]/40 mx-auto mt-10 mb-8" />
+    <p className="font-black text-3xl tracking-tight flex flex-row items-center justify-center gap-1 mb-8">
+      <span className="text-[#FFCC00]">&#8278;</span>
+      <span className="text-[#FFFFFF]">TEAMBLING</span>
+      <span className="text-[#FFCC00] scale-x-[-1]">&#8278;</span>
+    </p>
 
-        <p className="text-slate-400 text-sm font-medium tracking-wide mb-2">
-          <a href="mailto:hello@bling.uy" className="hover:text-[#FFCC00] transition-colors">hello@bling.uy</a>
+    <div className="flex justify-center items-center gap-6 mb-8">
+      <a href="https://www.youtube.com/@notibling" target="_blank" rel="noopener noreferrer" className="text-slate-500 hover:text-[#FFCC00] transition-colors duration-200" aria-label="YouTube">
+        <Youtube size={24} />
+      </a>
+      <a href="https://x.com/notibling" target="_blank" rel="noopener noreferrer" className="text-slate-500 hover:text-[#FFCC00] transition-colors duration-200" aria-label="X (Twitter)">
+        <Twitter size={24} />
+      </a>
+      <a href="https://www.facebook.com/blingnews" target="_blank" rel="noopener noreferrer" className="text-slate-500 hover:text-[#FFCC00] transition-colors duration-200" aria-label="Facebook">
+        <Facebook size={24} />
+      </a>
+      <a href="https://instagram.com/noti.bling" target="_blank" rel="noopener noreferrer" className="text-slate-500 hover:text-[#FFCC00] transition-colors duration-200" aria-label="Instagram">
+        <Instagram size={24} />
+      </a>
+      <a href="mailto:hello@bling.uy" className="text-slate-500 hover:text-[#FFCC00] transition-colors duration-200" aria-label="Email">
+        <Mail size={24} />
+      </a>
+    </div>
+  </div>
+
+  {/* Zócalo */}
+  <div className="border-t border-slate-800 mt-16 pt-8 max-w-4xl mx-auto">
+    <div className="flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+
+      {/* Izquierda — copyright */}
+      <div>
+        <p className="text-slate-400 text-sm font-semibold tracking-widest uppercase mb-1">
+          BlingCompany&reg;
         </p>
-        <p className="text-slate-600 text-xs font-medium tracking-wide">
-          Nuestra web principal está en mantenimiento pre-lanzamiento.
+        <p className="text-slate-600 text-xs font-medium">
+          Todos los derechos reservados &copy; {new Date().getFullYear()}
         </p>
       </div>
-    </section>
+
+      {/* Centro — mantenimiento */}
+      <div className="flex items-center gap-2">
+        <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#FFCC00] animate-pulse" />
+        <p className="text-slate-500 text-xs font-medium">
+          Sitio principal en mantenimiento pre-lanzamiento
+        </p>
+      </div>
+
+      {/* Derecha — contacto */}
+      <div className="md:text-right text-center">
+        <p className="text-slate-500 text-xs font-medium mb-1">Consultas · Sugerencias · Reportes</p>
+        
+         <a href="mailto:hello@bling.uy?subject=Consultas | Sugerencias | Reportes"
+          className="text-slate-400 text-xs font-semibold hover:text-[#FFCC00] transition-colors duration-200 tracking-wide"
+        >
+          hello@bling.uy
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
   );
 }
 
