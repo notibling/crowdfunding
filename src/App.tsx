@@ -231,36 +231,121 @@ export function WhyCrowdfundingSection() {
 
 const screenshots = [
   {
-    src: "image/screenshots/Login.avif",
+    src: "/images/screenshots/Login.avif",
     alt: "Ingreso y Registro",
     caption: "Zona de Registro y Autenticación",
   },
   {
-    src: "/screenshots/BlingNews.avif",
+    src: "/images/screenshots/BlingNews.avif",
     alt: "BlingNews Landing",
     caption: "Dashboard del medio",
   },
   {
-    src: "/screenshots/BlingPages.avif",
+    src: "/images/screenshots/BlingPages.avif",
     alt: "BlingPages Landing",
     caption: "Constructor de sitios web",
   },
   {
-    src: "/screenshots/Post.avif",
+    src: "/images/screenshots/Post.avif",
     alt: "Post Individual",
     caption: "Página de Noticia Individual",
   },
   {
-    src: "/screenshots/screenshot-5.jpg",
-    alt: "Editor de páginas",
-    caption: "BlingPages — editor de bloques",
+    src: "/images/screenshots/CrearAnuncio.avif",
+    alt: "Crear Anuncio",
+    caption: "Formulario de Creación de Anuncios",
   },
   {
-    src: "/screenshots/screenshot-6.jpg",
-    alt: "Panel de métricas",
-    caption: "Métricas en tiempo real",
+    src: "/images/screenshots/Profile.avif",
+    alt: "Perfil",
+    caption: "Perfil de Usuario",
   },
 ];
+
+const collaborators = [
+  // { name: "Colaborador 1", photo: "/images/collaborators/1.jpg", link: "https://x.com/colab1" },
+];
+
+const partnerCompanies = [
+  // { name: "Empresa 1", logo: "/images/partners/1.svg", link: "https://empresa1.com" },
+];
+
+export function CollaboratorsSection() {
+  return (
+    <section className="bg-[#0D0F14] px-6 py-28 border-t border-white/5">
+      <div className="max-w-5xl mx-auto text-center">
+        <p className="text-[#FFCC00] text-xs font-semibold tracking-[0.3em] uppercase mb-4">
+          Comunidad
+        </p>
+        <h2 className="text-white text-3xl md:text-4xl font-black mb-12">
+          Quienes hacen posible Bling.
+        </h2>
+
+        {collaborators.length > 0 ? (
+          <div className="flex flex-wrap justify-center gap-6">
+            {collaborators.map((c, i) => (
+              <a
+                key={i}
+                href={c.link || "#"}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative"
+              >
+                <div className="w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden border-2 border-slate-800 group-hover:border-[#FFCC00] transition-all duration-300">
+                  <img src={c.photo} alt={c.name} className="w-full h-full object-cover" />
+                </div>
+                {/* Tooltip con nombre */}
+                <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 bg-[#FFCC00] text-[#0D0F14] text-[10px] font-bold px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap z-20">
+                  {c.name}
+                </div>
+              </a>
+            ))}
+          </div>
+        ) : (
+          <div className="py-10">
+            <p className="text-slate-500 text-lg italic mb-6">Aún no hay colaboradores públicos.</p>
+            <a
+              href="#colaborar"
+              className="text-[#FFCC00] font-bold tracking-widest uppercase text-sm border-b-2 border-[#FFCC00]/30 hover:border-[#FFCC00] transition-all pb-1"
+            >
+              ¡Sé el primero!
+            </a>
+          </div>
+        )}
+      </div>
+    </section>
+  );
+}
+
+export function CompaniesSection() {
+  if (partnerCompanies.length === 0) return null;
+
+  return (
+    <section className="bg-[#111318] py-20 overflow-hidden border-t border-white/5">
+      <div className="max-w-5xl mx-auto px-6 mb-10 text-center">
+        <p className="text-[#FFCC00] text-xs font-semibold tracking-[0.3em] uppercase">
+          Empresas Aliadas
+        </p>
+      </div>
+      
+      <div className="relative flex overflow-hidden">
+        <div className="animate-marquee whitespace-nowrap flex items-center gap-12 px-6">
+          {[...partnerCompanies, ...partnerCompanies, ...partnerCompanies].map((company, i) => (
+            <a
+              key={i}
+              href={company.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+            >
+              <img src={company.logo} alt={company.name} className="h-10 md:h-12 w-auto object-contain" />
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
 
 export function ScreenshotsSection() {
   const [selected, setSelected] = useState<number | null>(null);
@@ -493,6 +578,8 @@ export default function App() {
       <StorySection />
       <WhatIsBlingSection />
       <ScreenshotsSection />
+      <CollaboratorsSection />
+      <CompaniesSection />
       <WhyCrowdfundingSection />
       <CTASection />
       <ClosingSection />
