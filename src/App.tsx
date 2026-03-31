@@ -4,43 +4,97 @@
  */
 
 import React from 'react';
-import { Youtube, Twitter, Facebook, Instagram, Mail } from 'lucide-react';
+import { Youtube, Twitter, Facebook, Instagram, Mail, ChevronRight } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 export function HeroSection() {
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-6 py-32 overflow-hidden bg-[#0D0F14]">
-      {/* Fondo de imagen con gradiente para difuminar hacia abajo */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-60"
+      {/* Fondo de imagen con gradiente */}
+      <motion.div 
+        initial={{ scale: 1.1, opacity: 0 }}
+        animate={{ scale: 1, opacity: 0.6 }}
+        transition={{ duration: 1.5, ease: "easeOut" }}
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: "url('/images/bling_light.avif')" }}
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-[#0D0F14] via-[#0D0F14]/30 to-transparent pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-[#0D0F14] to-transparent pointer-events-none" />
+      
+      {/* Capas de gradiente para profundidad */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0D0F14]/80 via-[#0D0F14]/40 to-[#0D0F14] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#0D0F14_100%)] opacity-60 pointer-events-none" />
 
-      {/* Fondo decorativo original */}
+      {/* Elementos decorativos animados */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-[#FFCC00]/5 rounded-full blur-[120px]" />
-        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#FFCC00]/30 to-transparent" />
+        <motion.div 
+          animate={{ 
+            scale: [1, 1.2, 1],
+            opacity: [0.08, 0.1, 0.08] 
+          }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#FFCC00] rounded-full blur-[150px]" 
+        />
+        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#FFCC00]/20 to-transparent" />
       </div>
 
-      <div className="relative z-10 max-w-4xl mx-auto mt-20">
-        <p className="text-[#FFCC00] text-xs font-semibold tracking-[0.3em] uppercase mb-6">
-          Programa de Crowdfunding
-        </p>
-        <h1 className="text-white text-5xl md:text-7xl font-black leading-[1.05] tracking-tight mb-6">
-          La información libre<br />
-          <span className="text-[#FFCC00]">no se financia sola.</span>
-        </h1>
-        <p className="text-slate-400 text-lg md:text-xl font-medium max-w-2xl mx-auto leading-relaxed mb-10">
-          Llevamos más de tres años construyendo la plataforma que los medios independientes necesitan. Hoy te invitamos a ser parte del primer año.
-        </p>
-        <a
-          href="#colaborar"
-          className="inline-block bg-[#FFCC00] text-[#0D0F14] font-black text-sm tracking-widest uppercase px-10 py-4 hover:bg-white transition-colors duration-200"
+      <div className="relative z-10 max-w-5xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
         >
-          Quiero colaborar
-        </a>
+          <span className="inline-block py-1 px-3 rounded-full bg-[#FFCC00]/10 border border-[#FFCC00]/20 text-[#FFCC00] text-[10px] md:text-xs font-bold tracking-[0.3em] uppercase mb-8">
+            Programa de Crowdfunding 2024
+          </span>
+        </motion.div>
+
+        <motion.h1 
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="text-white text-4xl md:text-7xl font-semibold leading-[0.95] tracking-tighter mb-8"
+        >
+          LA INFORMACIÓN LIBRE<br />
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFCC00] via-[#FFE066] to-[#FFCC00] bg-[length:200%_auto] animate-gradient-x">
+            NO SE FINANCIA SOLA.
+          </span>
+        </motion.h1>
+
+        <motion.p 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="text-slate-400 text-lg md:text-2xl font-medium max-w-2xl mx-auto leading-relaxed mb-12"
+        >
+          Llevamos más de tres años construyendo la plataforma que los medios independientes necesitan. 
+          <span className="text-white"> Hoy te invitamos a ser parte del primer año.</span>
+        </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="flex flex-col sm:flex-row items-center justify-center gap-5"
+        >
+          <a
+            href="#colaborar"
+            className="group relative inline-flex items-center justify-center bg-[#FFCC00] text-[#0D0F14] font-black text-sm tracking-widest uppercase px-12 py-5 overflow-hidden transition-all duration-300 hover:pr-14"
+          >
+            <span className="relative z-10">Quiero colaborar</span>
+            <ChevronRight className="absolute right-4 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" size={20} />
+          </a>
+          
+        </motion.div>
       </div>
+
+      {/* Indicador de scroll */}
+      <motion.div 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.2, duration: 1 }}
+        className="absolute bottom-10 left-1/2 -translate-x-1/2"
+      >
+        <div className="w-[1px] h-16 bg-gradient-to-b from-[#FFCC00] to-transparent" />
+      </motion.div>
     </section>
   );
 }
@@ -103,28 +157,38 @@ export function WhatIsBlingSection() {
   ];
 
   return (
-    <section className="bg-[#111318] px-6 py-28">
-      <div className="max-w-5xl mx-auto">
+    <section className="relative bg-[#111318] px-6 py-28 overflow-hidden">
+      {/* Imagen de fondo con opacidad baja */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40"
+        style={{ backgroundImage: "url('/images/Ads.avif')" }}
+      />
+      {/* Gradientes para fundir el fondo */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#111318] via-[#111318]/60 to-[#111318] pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#111318] via-transparent to-[#111318] pointer-events-none opacity-40" />
+
+      <div className="relative z-10 max-w-5xl mx-auto">
         <p className="text-[#FFCC00] text-xs font-semibold tracking-[0.3em] uppercase mb-4 text-center">
           La plataforma
         </p>
         <h2 className="text-white text-4xl md:text-5xl font-black text-center leading-tight mb-4">
           Bling no es solo una herramienta.
         </h2>
-        <p className="text-slate-400 text-center text-lg mb-16 max-w-xl mx-auto">
+        <p className="text-slate-400 text-center text-lg mb-16 max-w-xl mx-auto font-medium">
           Es la infraestructura que los medios independientes necesitaban desde siempre.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {features.map((f, i) => (
-            <div
+            <motion.div
               key={i}
-              className="border border-slate-800 bg-[#0D0F14] p-8 hover:border-[#FFCC00]/40 transition-colors duration-300"
+              whileHover={{ y: -5 }}
+              className="border border-white/10 bg-[#0D0F14]/80 backdrop-blur-md p-8 hover:border-[#FFCC00]/40 transition-all duration-300"
             >
               <span className="text-[#FFCC00] text-2xl block mb-4">{f.icon}</span>
               <h3 className="text-white font-bold text-xl mb-3">{f.title}</h3>
-              <p className="text-slate-400 leading-relaxed">{f.description}</p>
-            </div>
+              <p className="text-slate-400 leading-relaxed font-medium">{f.description}</p>
+            </motion.div>
           ))}
         </div>
       </div>
@@ -171,30 +235,32 @@ export function CTASection() {
   return (
     <section
       id="colaborar"
-      className="relative bg-[#FFCC00] px-6 py-32 text-center overflow-hidden"
+      className="relative bg-[#0D0F14] px-6 py-32 text-center overflow-hidden"
     >
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 left-0 w-full h-px bg-black/10" />
-        <div className="absolute bottom-0 left-0 w-full h-px bg-black/10" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-black/5 rounded-full" />
-      </div>
+      {/* Fondo de imagen con gradiente */}
+       <div 
+         className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-60"
+         style={{ backgroundImage: "url('/images/Bling_Periodista.avif')" }}
+       />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0D0F14] via-[#0D0F14]/60 to-[#0D0F14] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#0D0F14_100%)] opacity-40 pointer-events-none" />
 
       <div className="relative z-10 max-w-3xl mx-auto">
-        <h2 className="text-[#0D0F14] text-5xl md:text-6xl font-black leading-tight mb-6">
+        <h2 className="text-white text-5xl md:text-6xl font-black leading-tight mb-6">
           Dale voz a quienes<br />tienen algo que decir.
         </h2>
-        <p className="text-[#0D0F14]/70 text-xl font-medium mb-10 max-w-xl mx-auto leading-relaxed">
+        <p className="text-slate-300 text-xl font-medium mb-10 max-w-xl mx-auto leading-relaxed">
           Tu colaboración, del monto que vos decidas, hace posible que medios independientes tengan un espacio propio, libre y profesional.
         </p>
         <a
           href="https://paypal.me/notibling"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-block bg-[#0D0F14] text-[#FFCC00] font-black text-sm tracking-widest uppercase px-12 py-5 hover:bg-[#1a1d26] transition-colors duration-200"
+          className="inline-block bg-[#FFCC00] text-[#0D0F14] font-black text-sm tracking-widest uppercase px-12 py-5 hover:bg-white transition-colors duration-200"
         >
           Colaborar ahora →
         </a>
-        <p className="text-[#0D0F14]/50 text-sm mt-6 font-medium">
+        <p className="text-slate-500 text-sm mt-6 font-medium">
           paypal.me/notibling · Preguntas: hello@bling.uy
         </p>
       </div>
