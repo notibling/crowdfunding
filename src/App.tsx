@@ -425,10 +425,10 @@ export function ScreenshotsSection() {
           </Swiper>
 
           {/* Botones de navegación personalizados */}
-          <button className="swiper-button-prev-custom absolute left-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center rounded-full bg-white/5 border border-white/10 text-white hover:bg-[#FFCC00] hover:text-[#0D0F14] transition-all duration-300 cursor-pointer hidden md:flex">
+          <button className="swiper-button-prev-custom absolute left-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 hidden md:flex items-center justify-center rounded-full bg-white/5 border border-white/10 text-white hover:bg-[#FFCC00] hover:text-[#0D0F14] transition-all duration-300 cursor-pointer">
             <ArrowLeft size={20} />
           </button>
-          <button className="swiper-button-next-custom absolute right-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center rounded-full bg-white/5 border border-white/10 text-white hover:bg-[#FFCC00] hover:text-[#0D0F14] transition-all duration-300 cursor-pointer hidden md:flex">
+          <button className="swiper-button-next-custom absolute right-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 hidden md:flex items-center justify-center rounded-full bg-white/5 border border-white/10 text-white hover:bg-[#FFCC00] hover:text-[#0D0F14] transition-all duration-300 cursor-pointer">
             <ArrowRight size={20} />
           </button>
         </div>
@@ -442,12 +442,12 @@ export function ScreenshotsSection() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setZoomImage(null)}
-            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 p-4 md:p-10 cursor-zoom-out"
+            className="fixed inset-0 z-100 flex items-center justify-center bg-black/95 p-4 md:p-10 cursor-zoom-out"
           >
             <motion.button
               initial={{ scale: 0.5, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              className="absolute top-6 right-6 text-white/50 hover:text-[#FFCC00] transition-colors z-[110]"
+              className="absolute top-6 right-6 text-white/50 hover:text-[#FFCC00] transition-colors z-110"
               onClick={() => setZoomImage(null)}
             >
               <X size={32} />
