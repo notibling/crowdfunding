@@ -120,7 +120,7 @@ export function StorySection() {
             Más de tres años después, <span className="text-[#FFCC00]">Bling está casi listo.</span> Y llegamos hasta aquí sin que nadie nos deba nada &#8278; ni nosotros a nadie.
           </p>
           <p>
-            Eso no fue un accidente. Fue una decisión. Creemos que la herramienta que le dará voz a los medios libres no puede nacer endeudada. No puede trasladarle sus costos de desarrollo a los mismos usuarios que viene a liberar.
+            Eso no fue un accidente. Fue una decisión. Creemos que la plataforma que le dará voz a los medios libres no puede nacer endeudada. No puede trasladarle sus costos de desarrollo a los mismos usuarios que viene a liberar.
           </p>
         </div>
       </div>
@@ -152,7 +152,7 @@ export function WhatIsBlingSection() {
       icon: "✦",
       title: "Publicidad justa",
       description:
-        "Las empresas pueden anunciarse en BlingNews y llegar a miles de lectores con herramientas publicitarias reales &#8278; y los medios monetizan sin depender de terceros.",
+        "Las empresas pueden anunciarse en BlingNews y llegar a miles de lectores con herramientas publicitarias reales y los medios monetizan sin depender de terceros.",
     },
   ];
 
