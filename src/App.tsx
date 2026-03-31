@@ -3,8 +3,8 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React from 'react';
-import { Youtube, Twitter, Facebook, Instagram, Mail, ChevronRight } from 'lucide-react';
+import React, { useState } from 'react';
+import { Youtube, Twitter, Facebook, Instagram, Mail, ChevronRight, X, ZoomIn } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export function HeroSection() {
@@ -229,6 +229,147 @@ export function WhyCrowdfundingSection() {
   );
 }
 
+const screenshots = [
+  {
+    src: "/screenshots/screenshot-1.jpg",
+    alt: "Panel de publicación",
+    caption: "Creador de contenido",
+  },
+  {
+    src: "/screenshots/screenshot-2.jpg",
+    alt: "Dashboard del medio",
+    caption: "Dashboard del medio",
+  },
+  {
+    src: "/screenshots/screenshot-3.jpg",
+    alt: "Vista del sitio público",
+    caption: "Sitio público personalizable",
+  },
+  {
+    src: "/screenshots/screenshot-4.jpg",
+    alt: "Panel de anuncios",
+    caption: "Panel de anuncios BlingAds",
+  },
+  {
+    src: "/screenshots/screenshot-5.jpg",
+    alt: "Editor de páginas",
+    caption: "BlingPages — editor de bloques",
+  },
+  {
+    src: "/screenshots/screenshot-6.jpg",
+    alt: "Panel de métricas",
+    caption: "Métricas en tiempo real",
+  },
+];
+
+export function ScreenshotsSection() {
+  const [selected, setSelected] = useState<number | null>(null);
+
+  const current = selected !== null ? screenshots[selected] : null;
+
+  const prev = () =>
+    setSelected((s) => (s !== null ? (s - 1 + screenshots.length) % screenshots.length : 0));
+
+  const next = () =>
+    setSelected((s) => (s !== null ? (s + 1) % screenshots.length : 0));
+
+  return (
+    <section className="bg-[#111318] px-6 py-28">
+      <div className="max-w-5xl mx-auto">
+        <p className="text-[#FFCC00] text-xs font-semibold tracking-[0.3em] uppercase mb-4 text-center">
+          En desarrollo
+        </p>
+        <h2 className="text-white text-4xl md:text-5xl font-black text-center leading-tight mb-4">
+          Así se ve Bling por dentro.
+        </h2>
+        <p className="text-slate-400 text-center text-lg mb-14 max-w-xl mx-auto">
+          Capturas reales del trabajo de más de tres años. Hacé click para ampliar.
+        </p>
+
+        {/* Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+          {screenshots.map((s, i) => (
+            <button
+              key={i}
+              onClick={() => setSelected(i)}
+              className="group relative aspect-video overflow-hidden rounded-lg border border-slate-800 hover:border-[#FFCC00]/40 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-[#FFCC00]/50"
+            >
+              <img
+                src={s.src}
+                alt={s.alt}
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              {/* Overlay hover */}
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300 flex items-center justify-center">
+                <ZoomIn
+                  size={28}
+                  className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                />
+              </div>
+              {/* Caption */}
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent px-3 py-2 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                <p className="text-white text-xs font-semibold">{s.caption}</p>
+              </div>
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Modal */}
+      {current && (
+        <div
+          className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4"
+          onClick={() => setSelected(null)}
+        >
+          <div
+            className="relative max-w-5xl w-full"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Cerrar */}
+            <button
+              onClick={() => setSelected(null)}
+              className="absolute -top-10 right-0 text-slate-400 hover:text-white transition-colors"
+            >
+              <X size={24} />
+            </button>
+
+            {/* Imagen */}
+            <div className="relative w-full aspect-video rounded-lg overflow-hidden bg-black/40">
+              <img
+                src={current.src}
+                alt={current.alt}
+                className="w-full h-full object-contain"
+              />
+            </div>
+
+            {/* Caption + navegación */}
+            <div className="flex items-center justify-between mt-4 px-1">
+              <button
+                onClick={prev}
+                className="text-slate-400 hover:text-[#FFCC00] text-sm font-semibold transition-colors"
+              >
+                ← Anterior
+              </button>
+              <p className="text-slate-400 text-sm font-medium">{current.caption}</p>
+              <button
+                onClick={next}
+                className="text-slate-400 hover:text-[#FFCC00] text-sm font-semibold transition-colors"
+              >
+                Siguiente →
+              </button>
+            </div>
+
+            {/* Contador */}
+            <p className="text-center text-slate-600 text-xs mt-2">
+              {selected! + 1} / {screenshots.length}
+            </p>
+          </div>
+        </div>
+      )}
+    </section>
+  );
+}
+
 export function CTASection() {
   return (
     <section
@@ -351,6 +492,7 @@ export default function App() {
       <HeroSection />
       <StorySection />
       <WhatIsBlingSection />
+      <ScreenshotsSection />
       <WhyCrowdfundingSection />
       <CTASection />
       <ClosingSection />
