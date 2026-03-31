@@ -9,7 +9,7 @@ import { motion } from 'framer-motion';
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-6 py-32 overflow-hidden bg-[#0D0F14]">
+    <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-6 py-32 overflow-hidden ">
       {/* Fondo de imagen con gradiente */}
       <motion.div 
         initial={{ scale: 1.1, opacity: 0 }}
@@ -20,7 +20,7 @@ export function HeroSection() {
       />
       
       {/* Capas de gradiente para profundidad */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0D0F14]/20 via-[#0D0F14]/40 to-[#0D0F14] pointer-events-none" >
+      <div className="absolute inset-0  pointer-events-none bg-gradient-to-b from-[#08090d]/20 via-[#0D0F14]/40 via-[#08090d] via-90% to-[#08090d]" >
      
      
        
@@ -99,7 +99,7 @@ export function HeroSection() {
 
 export function StorySection() {
   return (
-    <section className="bg-[#0D0F14] px-6 py-28">
+    <section className=" bg-gradient-to-b from-[#08090d] via-[#0D0F14] via-[#0D0F14] via-[#0D0F14] to-[#08090d] px-6 py-28">
       <div className="max-w-3xl mx-auto">
         <p className="text-[#FFCC00] text-xs font-semibold tracking-[0.3em] uppercase mb-4">
           Tres años de trabajo
@@ -158,7 +158,7 @@ export function WhatIsBlingSection() {
     <section className="relative bg-[#111318] px-6 py-28 overflow-hidden">
       {/* Imagen de fondo con opacidad baja */}
       <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat "
         style={{ backgroundImage: "url('/images/Ads.avif')" }}
       />
       {/* Gradientes para fundir el fondo */}
@@ -196,7 +196,7 @@ export function WhatIsBlingSection() {
 
 export function WhyCrowdfundingSection() {
   return (
-    <section className="bg-[#0D0F14] px-6 py-28">
+    <section className=" px-6 py-28">
       <div className="max-w-3xl mx-auto">
         <p className="text-[#FFCC00] text-xs font-semibold tracking-[0.3em] uppercase mb-4">
           Por qué te lo pedimos a vos
@@ -268,7 +268,7 @@ export function CTASection() {
 
 export function ClosingSection() {
   return (
-  <section className="bg-[#0D0F14] px-6 py-28 text-center">
+  <section className=" px-6 py-28 text-center">
   <div className="max-w-2xl mx-auto">
     <div className="w-10 h-px bg-[#FFCC00]/40 mx-auto mb-10" />
     <p className="text-[#ffcc00] font-bold text-xl leading-relaxed mb-8">
@@ -347,7 +347,7 @@ export function ClosingSection() {
 
 export default function App() {
   return (
-    <main className="font-montserrat">
+    <main className="font-montserrat bg-gradient-to-t from-[#08090d] via-[#0D0F14] via-[#0D0F14] via-[#0D0F14] to-[#08090d]">
       <HeroSection />
       <StorySection />
       <WhatIsBlingSection />
