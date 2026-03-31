@@ -20,7 +20,7 @@ export function HeroSection() {
       />
       
       {/* Capas de gradiente para profundidad */}
-      <div className="absolute inset-0  pointer-events-none bg-gradient-to-b from-[#08090d]/20 via-[#0D0F14]/40 via-[#08090d] via-90% to-[#08090d]" >
+      <div className="absolute inset-0 pointer-events-none bg-linear-to-b from-[#08090d]/20 via-[#0D0F14]/40 via-90% to-[#08090d]" >
      
      
        
@@ -45,7 +45,7 @@ export function HeroSection() {
           className="text-white text-4xl md:text-7xl text-shadow-2xs font-semibold leading-[0.95] tracking-tighter mb-8"
         >
           LA INFORMACIÓN LIBRE<br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFCC00] via-[#FFE066] to-[#FFCC00] bg-[length:200%_auto] animate-gradient-x">
+          <span className="text-transparent bg-clip-text bg-linear-to-r from-[#FFCC00] via-[#FFE066] to-[#FFCC00] bg-size-[200%_auto] animate-gradient-x">
             NO SE FINANCIA SOLA.
           </span>
         </motion.h1>
@@ -62,7 +62,7 @@ export function HeroSection() {
     <br/>Eso es lo que llevamos tres años tratando de cambiar.
   </span>
   <br/><br/>
-  <span className=" px-2  text-transparent bg-clip-text bg-gradient-to-r from-[#FFCC00] via-[#ffe53a] to-[#FFCC00] bg-[length:150%_auto] animate-gradient-x    text-2xl text-shadow-2xs md:text-2xl">
+  <span className=" px-2  text-transparent bg-clip-text bg-linear-to-r from-[#FFCC00] via-[#ffe53a] to-[#FFCC00] bg-size-[150%_auto] animate-gradient-x    text-2xl text-shadow-2xs md:text-2xl">
     Hoy te invitamos a ser parte del primer año.
   </span>
 </motion.p>
@@ -91,7 +91,7 @@ export function HeroSection() {
         transition={{ delay: 1.2, duration: 1 }}
         className="absolute bottom-10 left-1/2 -translate-x-1/2"
       >
-        <div className="w-[1px] h-16 bg-gradient-to-b from-[#FFCC00] to-transparent" />
+        <div className="w-px h-16 bg-linear-to-b from-[#FFCC00] to-transparent" />
       </motion.div>
     </section>
   );
@@ -99,7 +99,7 @@ export function HeroSection() {
 
 export function StorySection() {
   return (
-    <section className=" bg-gradient-to-b from-[#08090d] via-[#0D0F14] via-[#0D0F14] via-[#0D0F14] to-[#08090d] px-6 py-28">
+    <section className="bg-linear-to-b from-[#08090d] via-[#0D0F14] to-[#08090d] px-6 py-28">
       <div className="max-w-3xl mx-auto">
         <p className="text-[#FFCC00] text-xs font-semibold tracking-[0.3em] uppercase mb-4">
           Tres años de trabajo
@@ -162,8 +162,8 @@ export function WhatIsBlingSection() {
         style={{ backgroundImage: "url('/images/Ads.avif')" }}
       />
       {/* Gradientes para fundir el fondo */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#111318] via-[#111318]/60 to-[#111318] pointer-events-none" />
-      <div className="absolute inset-0 bg-gradient-to-r from-[#111318] via-transparent to-[#111318] pointer-events-none opacity-40" />
+      <div className="absolute inset-0 bg-linear-to-b from-[#111318] via-[#111318]/60 to-[#111318] pointer-events-none" />
+      <div className="absolute inset-0 bg-linear-to-r from-[#111318] via-transparent to-[#111318] pointer-events-none opacity-40" />
 
       <div className="relative z-10 max-w-5xl mx-auto">
         <p className="text-[#FFCC00] text-xs font-semibold tracking-[0.3em] uppercase mb-4 text-center">
@@ -231,24 +231,24 @@ export function WhyCrowdfundingSection() {
 
 const screenshots = [
   {
-    src: "/screenshots/screenshot-1.jpg",
-    alt: "Panel de publicación",
-    caption: "Creador de contenido",
+    src: "image/screenshots/Login.avif",
+    alt: "Ingreso y Registro",
+    caption: "Zona de Registro y Autenticación",
   },
   {
-    src: "/screenshots/screenshot-2.jpg",
-    alt: "Dashboard del medio",
+    src: "/screenshots/BlingNews.avif",
+    alt: "BlingNews Landing",
     caption: "Dashboard del medio",
   },
   {
-    src: "/screenshots/screenshot-3.jpg",
-    alt: "Vista del sitio público",
-    caption: "Sitio público personalizable",
+    src: "/screenshots/BlingPages.avif",
+    alt: "BlingPages Landing",
+    caption: "Constructor de sitios web",
   },
   {
-    src: "/screenshots/screenshot-4.jpg",
-    alt: "Panel de anuncios",
-    caption: "Panel de anuncios BlingAds",
+    src: "/screenshots/Post.avif",
+    alt: "Post Individual",
+    caption: "Página de Noticia Individual",
   },
   {
     src: "/screenshots/screenshot-5.jpg",
@@ -307,7 +307,7 @@ export function ScreenshotsSection() {
                 />
               </div>
               {/* Caption */}
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent px-3 py-2 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+              <div className="absolute bottom-0 left-0 right-0 bg-linear-to-t from-black/80 to-transparent px-3 py-2 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
                 <p className="text-white text-xs font-semibold">{s.caption}</p>
               </div>
             </button>
@@ -379,10 +379,10 @@ export function CTASection() {
       {/* Fondo de imagen con gradiente */}
        <div 
          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-60"
-         style={{ backgroundImage: "url('/images/Bling_Periodista.avif')" }}
-       />
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0D0F14] via-[#0D0F14]/60 to-[#0D0F14] pointer-events-none" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#0D0F14_100%)] opacity-40 pointer-events-none" />
+          style={{ backgroundImage: "url('/images/Bling_Periodista.avif')" }}
+        />
+        <div className="absolute inset-0 bg-linear-to-b from-[#0D0F14] via-[#0D0F14]/60 to-[#0D0F14] pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#0D0F14_100%)] opacity-40 pointer-events-none" />
 
       <div className="relative z-10 max-w-3xl mx-auto">
         <h2 className="text-white text-5xl md:text-6xl font-black leading-tight mb-6">
@@ -488,7 +488,7 @@ export function ClosingSection() {
 
 export default function App() {
   return (
-    <main className="font-montserrat bg-gradient-to-t from-[#08090d] via-[#0D0F14] via-[#0D0F14] via-[#0D0F14] to-[#08090d]">
+    <main className="font-montserrat bg-linear-to-t from-[#08090d] via-[#0D0F14] to-[#08090d]">
       <HeroSection />
       <StorySection />
       <WhatIsBlingSection />
