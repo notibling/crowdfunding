@@ -101,21 +101,6 @@ export function PaymentModal({ isOpen, onClose }: { isOpen: boolean, onClose: ()
                   <span className="text-[10px] font-bold uppercase tracking-wider">Transferencia Segura P2P</span>
                 </div>
               </div>
-
-              {/* Alternative Method Zone */}
-              <div className="pt-6 border-t border-white/10">
-                <h4 className="text-white font-bold text-sm mb-3">¿No usás Binance?</h4>
-                <p className="text-slate-400 text-[11px] leading-relaxed mb-4">
-                  Elegimos Binance para evitar las comisiones abusivas de otras plataformas y los laberintos burocráticos del sistema financiero uruguayo — pero entendemos que no es para todos.
-                </p>
-                <p className="text-slate-400 text-[11px] leading-relaxed mb-4">
-                  Si preferís otro método, escribinos a <a href="mailto:hello@bling.uy" className="text-[#F3BA2F] hover:underline">hello@bling.uy</a> y coordinamos juntos la forma que mejor te quede.
-                </p>
-                <div className="flex items-center justify-center gap-2 text-slate-500 text-[10px] font-medium italic">
-                  <span>Tus datos son confidenciales y están protegidos</span>
-                  <span>🔒</span>
-                </div>
-              </div>
             </div>
           </motion.div>
         </motion.div>

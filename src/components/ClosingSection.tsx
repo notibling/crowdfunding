@@ -1,6 +1,7 @@
 import React from 'react';
 import { Youtube, Twitter, Facebook, Instagram, Mail } from 'lucide-react';
 
+
 export function ClosingSection() {
   return (
   <section className=" px-6 py-28 text-center">
@@ -12,37 +13,39 @@ export function ClosingSection() {
     <p className="text-white text-xl leading-relaxed font-medium mb-8">
       Hayas decidido colaborar o no, gracias por leer. Por tomarte el tiempo de entender qué estamos construyendo y por qué lo estamos haciendo así. Proyectos como Bling solo tienen sentido si hay personas que crean que la información libre importa &#8278; y vos sos una de ellas.
     </p>
-    <p className="text-slate-500 text-lg font-medium italic">
-      — El equipo de Bling.
+    <p className="text-slate-400 text-lg leading-relaxed font-medium">
+      Si algún día usás la plataforma, si compartís esto con alguien, o si simplemente seguís de cerca lo que estamos haciendo, ya sos parte de esto.
+    </p>
+    <div className="w-10 h-px bg-[#FFCC00]/40 mx-auto mt-10 mb-8" />
+    <p className="font-black text-3xl tracking-tight flex flex-row items-center justify-center gap-1 mb-8">
+      <span className="text-[#FFCC00]">&#8278;</span>
+      <span className="text-[#FFFFFF]">TEAMBLING</span>
+      <span className="text-[#FFCC00] scale-x-[-1]">&#8278;</span>
     </p>
 
-    {/* RRSS */}
-    <div className="mt-20 flex flex-col items-center">
-      <p className="text-slate-400 text-xs font-bold uppercase tracking-[0.3em] mb-8">Seguinos en el camino</p>
-      <div className="flex gap-8">
-        {[
-          { icon: Youtube, href: "https://youtube.com/@blingnews" },
-          { icon: Twitter, href: "https://x.com/blingnews" },
-          { icon: Facebook, href: "https://facebook.com/blingnews" },
-          { icon: Instagram, href: "https://instagram.com/blingnews" },
-          { icon: Mail, href: "mailto:hello@bling.uy" }
-        ].map((social, i) => (
-          <a
-            key={i}
-            href={social.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-slate-500 hover:text-[#FFCC00] transition-colors duration-300"
-          >
-            <social.icon size={20} />
-          </a>
-        ))}
-      </div>
+    <div className="flex justify-center items-center gap-6 mb-8">
+      <a href="https://www.youtube.com/@notibling" target="_blank" rel="noopener noreferrer" className="text-slate-500 hover:text-[#FFCC00] transition-colors duration-200" aria-label="YouTube">
+        <Youtube size={24} />
+      </a>
+      <a href="https://x.com/notibling" target="_blank" rel="noopener noreferrer" className="text-slate-500 hover:text-[#FFCC00] transition-colors duration-200" aria-label="X (Twitter)">
+        <Twitter size={24} />
+      </a>
+      <a href="https://www.facebook.com/blingnews" target="_blank" rel="noopener noreferrer" className="text-slate-500 hover:text-[#FFCC00] transition-colors duration-200" aria-label="Facebook">
+        <Facebook size={24} />
+      </a>
+      <a href="https://instagram.com/noti.bling" target="_blank" rel="noopener noreferrer" className="text-slate-500 hover:text-[#FFCC00] transition-colors duration-200" aria-label="Instagram">
+        <Instagram size={24} />
+      </a>
+      <a href="mailto:hello@bling.uy" className="text-slate-500 hover:text-[#FFCC00] transition-colors duration-200" aria-label="Email">
+        <Mail size={24} />
+      </a>
     </div>
+  </div>
 
-    {/* Zócalo */}
-    <div className="mt-32 pt-12 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-8">
-      
+  {/* Zócalo */}
+  <div className="border-t border-slate-800 mt-16 pt-8 max-w-4xl mx-auto">
+    <div className="flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+
       {/* Izquierda — copyright */}
       <div>
         <p className="text-slate-400 text-sm font-semibold tracking-widest uppercase mb-1">
@@ -71,9 +74,8 @@ export function ClosingSection() {
           hello@bling.uy
         </a>
       </div>
-
+</div>
     </div>
-  </div>
 </section>
   );
 }

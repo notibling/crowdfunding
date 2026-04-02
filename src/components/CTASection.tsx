@@ -38,9 +38,22 @@ export function CTASection({ onOpenPayment }: { onOpenPayment: () => void }) {
           </p>
         </div>
 
-        <p className="text-slate-500 text-sm mt-12 font-medium">
-          ¿Dudas sobre el proceso? <a href="mailto:hello@bling.uy" className="text-[#F3BA2F] hover:underline transition-colors">hello@bling.uy</a>
-        </p>
+        {/* Alternative Method Zone */}
+        <div className="mt-16 pt-10 border-t border-white/5 max-w-2xl mx-auto">
+          <h4 className="text-[#F3BA2F] font-black text-sm uppercase tracking-widest mb-6">
+            ¿No usás Binance?
+          </h4>
+          <p className="text-slate-300 text-sm leading-relaxed mb-6">
+            Elegimos Binance para evitar las comisiones abusivas de otras plataformas y los laberintos burocráticos del sistema financiero uruguayo — pero entendemos que no es para todos.
+          </p>
+          <p className="text-slate-400 text-sm leading-relaxed mb-8">
+            Si preferís otro método, escribinos a <a href="mailto:hello@bling.uy" className="text-white hover:text-[#F3BA2F] transition-colors underline underline-offset-4">hello@bling.uy</a> y coordinamos juntos la forma que mejor te quede.
+          </p>
+          <div className="flex items-center justify-center gap-2 text-slate-500 text-[10px] font-bold uppercase tracking-widest opacity-50">
+            <span>Tus datos son confidenciales y están protegidos</span>
+            <span>🔒</span>
+          </div>
+        </div>
       </div>
     </section>
   );

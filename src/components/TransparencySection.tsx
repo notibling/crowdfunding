@@ -7,7 +7,7 @@ export function TransparencySection() {
     <section className="relative bg-[#0D0F14] px-6 py-28 border-t border-white/5 overflow-hidden">
       {/* Fondo de imagen con gradiente */}
       <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-50"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-80"
         style={{ backgroundImage: "url('/images/Transparency.avif')" }}
       />
       <div className="absolute inset-0 bg-linear-to-b from-[#0D0F14] via-[#0D0F14]/80 to-[#0D0F14] pointer-events-none" />
