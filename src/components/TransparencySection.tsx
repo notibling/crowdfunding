@@ -4,8 +4,16 @@ import { publicDonations } from '../constants';
 
 export function TransparencySection() {
   return (
-    <section className="bg-[#0D0F14] px-6 py-28 border-t border-white/5">
-      <div className="max-w-5xl mx-auto">
+    <section className="relative bg-[#0D0F14] px-6 py-28 border-t border-white/5 overflow-hidden">
+      {/* Fondo de imagen con gradiente */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30"
+        style={{ backgroundImage: "url('/images/Transparency.avif')" }}
+      />
+      <div className="absolute inset-0 bg-linear-to-b from-[#0D0F14] via-[#0D0F14]/80 to-[#0D0F14] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#0D0F14_100%)] opacity-60 pointer-events-none" />
+
+      <div className="relative z-10 max-w-5xl mx-auto">
         <div className="text-center mb-16">
           <p className="text-[#FFCC00] text-xs font-semibold tracking-[0.3em] uppercase mb-4">
             Transparencia
