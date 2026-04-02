@@ -12,6 +12,7 @@ const CTASection = lazy(() => import('./components/CTASection').then(m => ({ def
 const TransparencySection = lazy(() => import('./components/TransparencySection').then(m => ({ default: m.TransparencySection })));
 const ClosingSection = lazy(() => import('./components/ClosingSection').then(m => ({ default: m.ClosingSection })));
 const PaymentModal = lazy(() => import('./components/PaymentModal').then(m => ({ default: m.PaymentModal })));
+const ScrollToTop = lazy(() => import('./components/ScrollToTop').then(m => ({ default: m.ScrollToTop })));
 
 // Loading component
 const SectionLoader = () => (
@@ -37,6 +38,7 @@ export default function App() {
         <TransparencySection />
         <ClosingSection />
         <PaymentModal isOpen={isPaymentOpen} onClose={() => setIsPaymentOpen(false)} />
+        <ScrollToTop />
       </Suspense>
     </main>
   );
