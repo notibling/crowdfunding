@@ -91,7 +91,7 @@ export function PaymentModal({ isOpen, onClose }: { isOpen: boolean, onClose: ()
               </div>
 
               {/* Security Info */}
-              <div className="bg-white/5 rounded-xl p-4 border border-white/5 text-center">
+              <div className="bg-white/5 rounded-xl p-4 border border-white/5 text-center mb-8">
                 <div className="flex items-center justify-center gap-4 opacity-50 mb-3">
                   <BinanceIcon className="w-6 h-6" />
                   <span className="text-white font-black text-xs tracking-tighter">BINANCE PAY</span>
@@ -99,6 +99,21 @@ export function PaymentModal({ isOpen, onClose }: { isOpen: boolean, onClose: ()
                 <div className="flex items-center justify-center gap-2 text-slate-500">
                   <ShieldCheck size={14} className="text-[#F3BA2F]" />
                   <span className="text-[10px] font-bold uppercase tracking-wider">Transferencia Segura P2P</span>
+                </div>
+              </div>
+
+              {/* Alternative Method Zone */}
+              <div className="pt-6 border-t border-white/10">
+                <h4 className="text-white font-bold text-sm mb-3">¿No usás Binance?</h4>
+                <p className="text-slate-400 text-[11px] leading-relaxed mb-4">
+                  Elegimos Binance para evitar las comisiones abusivas de otras plataformas y los laberintos burocráticos del sistema financiero uruguayo — pero entendemos que no es para todos.
+                </p>
+                <p className="text-slate-400 text-[11px] leading-relaxed mb-4">
+                  Si preferís otro método, escribinos a <a href="mailto:hello@bling.uy" className="text-[#F3BA2F] hover:underline">hello@bling.uy</a> y coordinamos juntos la forma que mejor te quede.
+                </p>
+                <div className="flex items-center justify-center gap-2 text-slate-500 text-[10px] font-medium italic">
+                  <span>Tus datos son confidenciales y están protegidos</span>
+                  <span>🔒</span>
                 </div>
               </div>
             </div>
