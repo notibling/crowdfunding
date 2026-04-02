@@ -4,7 +4,7 @@
  */
 
 import React, { useState } from 'react';
-import { Youtube, Twitter, Facebook, Instagram, Mail, ChevronRight, X, ZoomIn, ArrowLeft, ArrowRight, Maximize2 } from 'lucide-react';
+import { Youtube, Twitter, Facebook, Instagram, Mail, ChevronRight, X, ZoomIn, ArrowLeft, ArrowRight, Maximize2, CreditCard, Lock, ShieldCheck } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 // Swiper
@@ -483,7 +483,122 @@ export function ScreenshotsSection() {
   );
 }
 
-export function CTASection() {
+export function PaymentModal({ isOpen, onClose }: { isOpen: boolean, onClose: () => void }) {
+  const [amount, setAmount] = useState<number | string>(25);
+  const [loading, setLoading] = useState(false);
+
+  const handlePayment = () => {
+    setLoading(true);
+    // Simulación de llamada a Mastercard Checkout
+    // En una integración real, aquí se llamaría a Checkout.showPaymentPage()
+    // después de obtener un session.id del servidor de Bling.
+    setTimeout(() => {
+      setLoading(false);
+      alert("En una integración real, aquí se abriría el checkout seguro de Mastercard (Hosted Checkout). Consulta MASTERCARD_GATEWAY_REQUIREMENTS.md para más detalles.");
+      onClose();
+    }, 1500);
+  };
+
+  return (
+    <AnimatePresence>
+      {isOpen && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 z-100 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4"
+          onClick={onClose}
+        >
+          <motion.div
+            initial={{ scale: 0.9, opacity: 0, y: 20 }}
+            animate={{ scale: 1, opacity: 1, y: 0 }}
+            exit={{ scale: 0.9, opacity: 0, y: 20 }}
+            className="bg-[#111318] border border-white/10 w-full max-w-md rounded-2xl overflow-hidden shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Header */}
+            <div className="bg-[#FFCC00] p-6 text-[#0D0F14] flex justify-between items-center">
+              <div>
+                <h3 className="font-black text-xl tracking-tight uppercase">Colaborar con Bling</h3>
+                <p className="text-[10px] font-bold opacity-70 tracking-widest uppercase mt-1">Pago Seguro con Tarjeta</p>
+              </div>
+              <button onClick={onClose} className="hover:scale-110 transition-transform">
+                <X size={24} />
+              </button>
+            </div>
+
+            {/* Content */}
+            <div className="p-8">
+              <label className="block text-slate-400 text-xs font-bold uppercase tracking-widest mb-4 text-center">Selecciona el monto (USD)</label>
+              <div className="grid grid-cols-3 gap-3 mb-8">
+                {[10, 25, 50, 100, 250].map((val) => (
+                  <button
+                    key={val}
+                    onClick={() => setAmount(val)}
+                    className={`py-3 rounded-lg font-black text-sm transition-all border ${
+                      amount === val 
+                        ? "bg-[#FFCC00] text-[#0D0F14] border-[#FFCC00]" 
+                        : "bg-white/5 text-white border-white/10 hover:border-white/30"
+                    }`}
+                  >
+                    ${val}
+                  </button>
+                ))}
+                <div className="relative">
+                  <input 
+                    type="number" 
+                    placeholder="Otro" 
+                    value={typeof amount === 'string' ? amount : ''}
+                    onChange={(e) => setAmount(e.target.value)}
+                    className="w-full h-full bg-white/5 border border-white/10 rounded-lg py-3 px-3 text-white text-sm font-black focus:border-[#FFCC00] focus:outline-none placeholder:text-slate-600"
+                  />
+                </div>
+              </div>
+
+              {/* Security Info */}
+              <div className="bg-white/5 rounded-xl p-4 border border-white/5 mb-8">
+                <div className="flex items-center gap-3 text-slate-400 mb-2">
+                  <ShieldCheck size={18} className="text-[#FFCC00]" />
+                  <span className="text-[10px] font-bold uppercase tracking-wider">Estándares de Seguridad</span>
+                </div>
+                <p className="text-[11px] text-slate-500 leading-relaxed">
+                  Esta transacción cumple con los estándares <strong>PCI DSS</strong>. Tus datos bancarios se procesan de forma cifrada mediante el gateway oficial de <strong>Mastercard</strong>.
+                </p>
+              </div>
+
+              {/* Pay Button */}
+              <button
+                disabled={loading}
+                onClick={handlePayment}
+                className="w-full bg-white text-[#0D0F14] font-black py-4 rounded-xl flex items-center justify-center gap-3 hover:bg-[#FFCC00] transition-colors disabled:opacity-50"
+              >
+                {loading ? (
+                  <div className="w-5 h-5 border-2 border-[#0D0F14]/20 border-t-[#0D0F14] rounded-full animate-spin" />
+                ) : (
+                  <>
+                    <CreditCard size={18} />
+                    <span>PAGAR CON TARJETA</span>
+                  </>
+                )}
+              </button>
+
+              <div className="mt-6 flex items-center justify-center gap-4 opacity-30 grayscale hover:grayscale-0 transition-all">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard" className="h-6" />
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" alt="Visa" className="h-4" />
+                <div className="flex items-center gap-1 text-white font-bold text-[10px]">
+                  <Lock size={10} />
+                  SECURE
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
+}
+
+export function CTASection({ onOpenPayment }: { onOpenPayment: () => void }) {
   return (
     <section
       id="colaborar"
@@ -504,16 +619,28 @@ export function CTASection() {
         <p className="text-slate-300 text-xl font-medium mb-10 max-w-xl mx-auto leading-relaxed">
           Tu colaboración, del monto que vos decidas, hace posible que medios independientes tengan un espacio propio, libre y profesional.
         </p>
-        <a
-          href="https://paypal.me/notibling"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-block bg-[#FFCC00] text-[#0D0F14] font-black text-sm tracking-widest uppercase px-12 py-5 hover:bg-white transition-colors duration-200"
-        >
-          Colaborar ahora →
-        </a>
-        <p className="text-slate-300 text-xl mt-6 font-medium">
-          <a href="https://paypal.me/notibling" target="_blank" rel="noopener noreferrer" className="hover:text-[#FFCC00] transition-colors">paypal.me/notibling</a> · ¿Preguntas? <a href="mailto:hello@bling.uy" className="hover:text-[#FFCC00] transition-colors">hello@bling.uy</a>
+        
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <button
+            onClick={onOpenPayment}
+            className="w-full sm:w-auto inline-flex items-center justify-center bg-[#FFCC00] text-[#0D0F14] font-black text-sm tracking-widest uppercase px-12 py-5 hover:bg-white transition-colors duration-200 gap-3"
+          >
+            <CreditCard size={18} />
+            Colaborar con Tarjeta
+          </button>
+          
+          <a
+            href="https://paypal.me/notibling"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full sm:w-auto inline-flex items-center justify-center bg-white/10 text-white font-black text-sm tracking-widest uppercase px-12 py-5 border border-white/10 hover:bg-white hover:text-[#0D0F14] transition-colors duration-200"
+          >
+            Vía PayPal
+          </a>
+        </div>
+
+        <p className="text-slate-400 text-sm mt-8 font-medium">
+          ¿Preguntas sobre seguridad? <a href="mailto:hello@bling.uy" className="text-[#FFCC00] hover:underline transition-colors">hello@bling.uy</a>
         </p>
       </div>
     </section>
@@ -600,6 +727,8 @@ export function ClosingSection() {
 }
 
 export default function App() {
+  const [isPaymentOpen, setIsPaymentOpen] = useState(false);
+
   return (
     <main className="font-montserrat bg-linear-to-t from-[#08090d] via-[#0D0F14] to-[#08090d]">
       <HeroSection />
@@ -609,8 +738,9 @@ export default function App() {
       <CollaboratorsSection />
       <CompaniesSection />
       <WhyCrowdfundingSection />
-      <CTASection />
+      <CTASection onOpenPayment={() => setIsPaymentOpen(true)} />
       <ClosingSection />
+      <PaymentModal isOpen={isPaymentOpen} onClose={() => setIsPaymentOpen(false)} />
     </main>
   );
 }
