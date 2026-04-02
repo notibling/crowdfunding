@@ -12,10 +12,31 @@ import 'swiper/css/effect-coverflow';
 
 export function ScreenshotsSection() {
   const [zoomImage, setZoomImage] = useState<string | null>(null);
+  const [currentBg, setCurrentBg] = useState(screenshots[0].src);
 
   return (
-    <section className="bg-[#111318] px-6 py-28 border-t border-white/5 overflow-hidden">
-      <div className="max-w-6xl mx-auto">
+    <section className="relative bg-[#111318] px-6 py-28 border-t border-white/5 overflow-hidden transition-colors duration-1000">
+      {/* Fondo Dinámico con Crossfade */}
+      <div className="absolute inset-0 pointer-events-none">
+        <AnimatePresence>
+          <motion.div
+            key={currentBg}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 0.3 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1.5, ease: "easeInOut" }}
+            className="absolute inset-0"
+          >
+            <div 
+              className="absolute inset-0 bg-cover bg-center bg-no-repeat blur-[100px] scale-110"
+              style={{ backgroundImage: `url('${currentBg}')` }}
+            />
+            <div className="absolute inset-0 bg-[#111318]/40" />
+          </motion.div>
+        </AnimatePresence>
+      </div>
+
+      <div className="relative z-10 max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <p className="text-[#FFCC00] text-xs font-semibold tracking-[0.3em] uppercase mb-4">
             En desarrollo
@@ -49,6 +70,10 @@ export function ScreenshotsSection() {
             autoplay={{
               delay: 4000,
               disableOnInteraction: false,
+            }}
+            onSlideChange={(swiper) => {
+              const activeIndex = swiper.realIndex;
+              setCurrentBg(screenshots[activeIndex].src);
             }}
             modules={[EffectCoverflow, Pagination, Navigation, Autoplay]}
             className="w-full py-12"
