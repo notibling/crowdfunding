@@ -45,3 +45,25 @@ export const publicDonations = [
   // { donor: "Juan Pérez", amount: "50 USDT", date: "2024-03-20", isAnonymous: false, link: "https://x.com/juan", logo: null },
   // { donor: "Anónimo", amount: "100 USDT", date: "2024-03-18", isAnonymous: true, link: null, logo: null },
 ];
+
+export const teamMembers = [
+  {
+    name: "Member 1",
+    photo: "https://api.dicebear.com/7.x/avataaars/svg?seed=Felix",
+    role: "Core Team",
+    socials: {
+      instagram: "https://instagram.com/",
+      x: "https://x.com/",
+      linkedin: "https://linkedin.com/"
+    }
+  },
+  {
+    name: "Member 2",
+    photo: "https://api.dicebear.com/7.x/avataaars/svg?seed=Aneka",
+    role: "Core Team",
+    socials: {
+      x: "https://x.com/",
+      instagram: "https://instagram.com/"
+    }
+  }
+];

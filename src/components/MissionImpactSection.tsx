@@ -74,7 +74,7 @@ export function MissionImpactSection() {
           >
             <Target className="w-8 h-8 text-[#F3BA2F] animate-pulse" />
             <span className="text-white font-black text-2xl">Meta 2026</span>
-            <span className="text-slate-500 text-xs font-bold uppercase tracking-widest">Infraestructura 100% Libre</span>
+            <span className="text-emerald-500 text-xs font-bold uppercase tracking-widest">Infraestructura 100% Libre</span>
           </motion.div>
         </div>
 
@@ -86,10 +86,10 @@ export function MissionImpactSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="group p-8 rounded-3xl border border-white/5 bg-white/2 hover:bg-white/5 hover:border-[#F3BA2F]/30 transition-all duration-500 relative overflow-hidden"
+              className="group backdrop-blur-[20px] p-8 rounded-3xl border border-white/5 bg-white/2 hover:bg-white/5 hover:border-[#F3BA2F]/30 transition-all duration-500 relative overflow-hidden"
             >
               {/* Brillo al hover */}
-              <div className="absolute inset-0 bg-radial-gradient(circle_at_top_right,rgba(243,186,47,0.1),transparent_70%) opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute  inset-0 bg-radial-gradient(circle_at_top_right,rgba(243,186,47,0.1),transparent_70%) opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               
               <div className="relative z-10">
                 <div className="w-12 h-12 rounded-xl bg-[#F3BA2F]/10 border border-[#F3BA2F]/20 flex items-center justify-center text-[#F3BA2F] mb-6 group-hover:scale-110 transition-transform duration-500">
@@ -98,7 +98,7 @@ export function MissionImpactSection() {
                 <h3 className="text-white text-xl font-black mb-4 tracking-tight group-hover:text-[#F3BA2F] transition-colors">
                   {point.title}
                 </h3>
-                <p className="text-slate-400 text-sm leading-relaxed mb-6 font-medium">
+                <p className="text-slate-300 text-sm leading-relaxed mb-6 font-medium">
                   {point.description}
                 </p>
                 <div className="pt-6 border-t border-white/5">
