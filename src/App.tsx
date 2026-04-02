@@ -485,6 +485,19 @@ export function ScreenshotsSection() {
   );
 }
 
+export function BinanceIcon({ className }: { className?: string }) {
+  return (
+    <svg 
+      viewBox="0 0 24 24" 
+      fill="currentColor" 
+      className={className}
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path d="M16.624 13.9202l-4.624 4.624-4.624-4.624 4.624-4.624 4.624 4.624zm3.696-3.696l-3.696 3.696 3.696 3.696 3.68-3.696-3.68-3.696zm-12.016 0l-3.696 3.696 3.696 3.696 3.68-3.696-3.68-3.696zm8.32-8.32l-3.696 3.696 3.696 3.696 3.68-3.696-3.68-3.696zm0 16.64l-3.696 3.696 3.696 3.696 3.68-3.696-3.68-3.696z" />
+    </svg>
+  );
+}
+
 export function PaymentModal({ isOpen, onClose }: { isOpen: boolean, onClose: () => void }) {
   const [copied, setCopied] = useState(false);
 
@@ -514,7 +527,7 @@ export function PaymentModal({ isOpen, onClose }: { isOpen: boolean, onClose: ()
             {/* Header */}
             <div className="bg-[#F3BA2F] p-6 text-[#0D0F14] flex justify-between items-center">
               <div className="flex items-center gap-3">
-                <img src="https://cryptologos.cc/logos/binance-coin-bnb-logo.svg?v=024" alt="Binance" className="w-8 h-8" />
+                <BinanceIcon className="w-8 h-8" />
                 <div>
                   <h3 className="font-black text-xl tracking-tight uppercase leading-none">Binance Pay</h3>
                   <p className="text-[10px] font-bold opacity-70 tracking-widest uppercase mt-1">Colaboración Directa</p>
@@ -573,7 +586,11 @@ export function PaymentModal({ isOpen, onClose }: { isOpen: boolean, onClose: ()
 
               {/* Security Info */}
               <div className="bg-white/5 rounded-xl p-4 border border-white/5 text-center">
-                <div className="flex items-center justify-center gap-2 text-slate-500 mb-1">
+                <div className="flex items-center justify-center gap-4 opacity-50 mb-3">
+                  <BinanceIcon className="w-6 h-6" />
+                  <span className="text-white font-black text-xs tracking-tighter">BINANCE PAY</span>
+                </div>
+                <div className="flex items-center justify-center gap-2 text-slate-500">
                   <ShieldCheck size={14} className="text-[#F3BA2F]" />
                   <span className="text-[10px] font-bold uppercase tracking-wider">Transferencia Segura P2P</span>
                 </div>
@@ -613,7 +630,7 @@ export function CTASection({ onOpenPayment }: { onOpenPayment: () => void }) {
             onClick={onOpenPayment}
             className="w-full sm:w-auto inline-flex items-center justify-center bg-[#F3BA2F] text-[#0D0F14] font-black text-sm tracking-widest uppercase px-16 py-6 hover:bg-white transition-colors duration-200 gap-4 shadow-[0_0_30px_rgba(243,186,47,0.2)]"
           >
-            <img src="https://cryptologos.cc/logos/binance-coin-bnb-logo.svg?v=024" alt="Binance" className="w-5 h-5" />
+            <BinanceIcon className="w-6 h-6" />
             Colaborar vía Binance Pay
           </button>
           
