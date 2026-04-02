@@ -4,7 +4,7 @@
  */
 
 import React, { useState } from 'react';
-import { Youtube, Twitter, Facebook, Instagram, Mail, ChevronRight, X, ZoomIn, ArrowLeft, ArrowRight, Maximize2, CreditCard, Lock, ShieldCheck } from 'lucide-react';
+import { Youtube, Twitter, Facebook, Instagram, Mail, ChevronRight, X, ZoomIn, ArrowLeft, ArrowRight, Maximize2, ShieldCheck, Copy, CheckCircle2 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 // Swiper
@@ -14,6 +14,8 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/effect-coverflow';
+
+const binanceId = import.meta.env.VITE_BINANCE_ID || "1231358176";
 
 export function HeroSection() {
   return (
@@ -484,19 +486,12 @@ export function ScreenshotsSection() {
 }
 
 export function PaymentModal({ isOpen, onClose }: { isOpen: boolean, onClose: () => void }) {
-  const [amount, setAmount] = useState<number | string>(25);
-  const [loading, setLoading] = useState(false);
+  const [copied, setCopied] = useState(false);
 
-  const handlePayment = () => {
-    setLoading(true);
-    // Simulación de llamada a Mastercard Checkout
-    // En una integración real, aquí se llamaría a Checkout.showPaymentPage()
-    // después de obtener un session.id del servidor de Bling.
-    setTimeout(() => {
-      setLoading(false);
-      alert("En una integración real, aquí se abriría el checkout seguro de Mastercard (Hosted Checkout). Consulta MASTERCARD_GATEWAY_REQUIREMENTS.md para más detalles.");
-      onClose();
-    }, 1500);
+  const handleCopy = () => {
+    navigator.clipboard.writeText(binanceId);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
   };
 
   return (
@@ -517,10 +512,13 @@ export function PaymentModal({ isOpen, onClose }: { isOpen: boolean, onClose: ()
             onClick={(e) => e.stopPropagation()}
           >
             {/* Header */}
-            <div className="bg-[#FFCC00] p-6 text-[#0D0F14] flex justify-between items-center">
-              <div>
-                <h3 className="font-black text-xl tracking-tight uppercase">Colaborar con Bling</h3>
-                <p className="text-[10px] font-bold opacity-70 tracking-widest uppercase mt-1">Pago Seguro con Tarjeta</p>
+            <div className="bg-[#F3BA2F] p-6 text-[#0D0F14] flex justify-between items-center">
+              <div className="flex items-center gap-3">
+                <img src="https://cryptologos.cc/logos/binance-coin-bnb-logo.svg?v=024" alt="Binance" className="w-8 h-8" />
+                <div>
+                  <h3 className="font-black text-xl tracking-tight uppercase leading-none">Binance Pay</h3>
+                  <p className="text-[10px] font-bold opacity-70 tracking-widest uppercase mt-1">Colaboración Directa</p>
+                </div>
               </div>
               <button onClick={onClose} className="hover:scale-110 transition-transform">
                 <X size={24} />
@@ -529,65 +527,55 @@ export function PaymentModal({ isOpen, onClose }: { isOpen: boolean, onClose: ()
 
             {/* Content */}
             <div className="p-8">
-              <label className="block text-slate-400 text-xs font-bold uppercase tracking-widest mb-4 text-center">Selecciona el monto (USD)</label>
-              <div className="grid grid-cols-3 gap-3 mb-8">
-                {[10, 25, 50, 100, 250].map((val) => (
-                  <button
-                    key={val}
-                    onClick={() => setAmount(val)}
-                    className={`py-3 rounded-lg font-black text-sm transition-all border ${
-                      amount === val 
-                        ? "bg-[#FFCC00] text-[#0D0F14] border-[#FFCC00]" 
-                        : "bg-white/5 text-white border-white/10 hover:border-white/30"
-                    }`}
-                  >
-                    ${val}
-                  </button>
-                ))}
-                <div className="relative">
-                  <input 
-                    type="number" 
-                    placeholder="Otro" 
-                    value={typeof amount === 'string' ? amount : ''}
-                    onChange={(e) => setAmount(e.target.value)}
-                    className="w-full h-full bg-white/5 border border-white/10 rounded-lg py-3 px-3 text-white text-sm font-black focus:border-[#FFCC00] focus:outline-none placeholder:text-slate-600"
-                  />
+              <div className="text-center mb-8">
+                <p className="text-slate-400 text-sm font-medium mb-6">
+                  Podés colaborar directamente enviando USDT, BUSD o cualquier cripto vía <strong>Binance Pay</strong> utilizando el siguiente ID:
+                </p>
+                
+                <div 
+                  onClick={handleCopy}
+                  className="bg-white/5 border border-white/10 rounded-xl p-6 cursor-pointer hover:border-[#F3BA2F]/50 transition-all group relative overflow-hidden"
+                >
+                  <div className="absolute top-0 right-0 p-2 opacity-20 group-hover:opacity-100 transition-opacity">
+                    {copied ? <CheckCircle2 size={16} className="text-[#F3BA2F]" /> : <Copy size={16} />}
+                  </div>
+                  <p className="text-slate-500 text-[10px] font-bold uppercase tracking-[0.2em] mb-1">Binance ID</p>
+                  <p className="text-white text-3xl font-black tracking-wider group-active:scale-95 transition-transform">
+                    {binanceId}
+                  </p>
+                  {copied && (
+                    <motion.p 
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="text-[#F3BA2F] text-[10px] font-bold mt-2 uppercase tracking-widest"
+                    >
+                      ¡Copiado al portapapeles!
+                    </motion.p>
+                  )}
+                </div>
+              </div>
+
+              {/* Instructions */}
+              <div className="space-y-4 mb-8">
+                <div className="flex items-start gap-3">
+                  <div className="w-5 h-5 rounded-full bg-[#F3BA2F]/10 border border-[#F3BA2F]/20 flex items-center justify-center text-[#F3BA2F] text-[10px] font-bold mt-0.5">1</div>
+                  <p className="text-slate-400 text-xs leading-relaxed">Abrí tu App de <strong>Binance</strong> y andá a <strong>Pay</strong>.</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-5 h-5 rounded-full bg-[#F3BA2F]/10 border border-[#F3BA2F]/20 flex items-center justify-center text-[#F3BA2F] text-[10px] font-bold mt-0.5">2</div>
+                  <p className="text-slate-400 text-xs leading-relaxed">Seleccioná <strong>Enviar</strong> y elegí la opción <strong>ID de Binance</strong>.</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-5 h-5 rounded-full bg-[#F3BA2F]/10 border border-[#F3BA2F]/20 flex items-center justify-center text-[#F3BA2F] text-[10px] font-bold mt-0.5">3</div>
+                  <p className="text-slate-400 text-xs leading-relaxed">Ingresá el ID <span className="text-white font-bold">{binanceId}</span> y el monto a colaborar.</p>
                 </div>
               </div>
 
               {/* Security Info */}
-              <div className="bg-white/5 rounded-xl p-4 border border-white/5 mb-8">
-                <div className="flex items-center gap-3 text-slate-400 mb-2">
-                  <ShieldCheck size={18} className="text-[#FFCC00]" />
-                  <span className="text-[10px] font-bold uppercase tracking-wider">Estándares de Seguridad</span>
-                </div>
-                <p className="text-[11px] text-slate-500 leading-relaxed">
-                  Esta transacción cumple con los estándares <strong>PCI DSS</strong>. Tus datos bancarios se procesan de forma cifrada mediante el gateway oficial de <strong>Mastercard</strong>.
-                </p>
-              </div>
-
-              {/* Pay Button */}
-              <button
-                disabled={loading}
-                onClick={handlePayment}
-                className="w-full bg-white text-[#0D0F14] font-black py-4 rounded-xl flex items-center justify-center gap-3 hover:bg-[#FFCC00] transition-colors disabled:opacity-50"
-              >
-                {loading ? (
-                  <div className="w-5 h-5 border-2 border-[#0D0F14]/20 border-t-[#0D0F14] rounded-full animate-spin" />
-                ) : (
-                  <>
-                    <CreditCard size={18} />
-                    <span>PAGAR CON TARJETA</span>
-                  </>
-                )}
-              </button>
-
-              <div className="mt-6 flex items-center justify-center gap-4 opacity-30 grayscale hover:grayscale-0 transition-all">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard" className="h-6" />
-                <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" alt="Visa" className="h-4" />
-                <div className="flex items-center gap-1 text-white font-bold text-[10px]">
-                  <Lock size={10} />
-                  SECURE
+              <div className="bg-white/5 rounded-xl p-4 border border-white/5 text-center">
+                <div className="flex items-center justify-center gap-2 text-slate-500 mb-1">
+                  <ShieldCheck size={14} className="text-[#F3BA2F]" />
+                  <span className="text-[10px] font-bold uppercase tracking-wider">Transferencia Segura P2P</span>
                 </div>
               </div>
             </div>
@@ -620,27 +608,22 @@ export function CTASection({ onOpenPayment }: { onOpenPayment: () => void }) {
           Tu colaboración, del monto que vos decidas, hace posible que medios independientes tengan un espacio propio, libre y profesional.
         </p>
         
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <div className="flex flex-col items-center justify-center gap-4">
           <button
             onClick={onOpenPayment}
-            className="w-full sm:w-auto inline-flex items-center justify-center bg-[#FFCC00] text-[#0D0F14] font-black text-sm tracking-widest uppercase px-12 py-5 hover:bg-white transition-colors duration-200 gap-3"
+            className="w-full sm:w-auto inline-flex items-center justify-center bg-[#F3BA2F] text-[#0D0F14] font-black text-sm tracking-widest uppercase px-16 py-6 hover:bg-white transition-colors duration-200 gap-4 shadow-[0_0_30px_rgba(243,186,47,0.2)]"
           >
-            <CreditCard size={18} />
-            Colaborar con Tarjeta
+            <img src="https://cryptologos.cc/logos/binance-coin-bnb-logo.svg?v=024" alt="Binance" className="w-5 h-5" />
+            Colaborar vía Binance Pay
           </button>
           
-          <a
-            href="https://paypal.me/notibling"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-full sm:w-auto inline-flex items-center justify-center bg-white/10 text-white font-black text-sm tracking-widest uppercase px-12 py-5 border border-white/10 hover:bg-white hover:text-[#0D0F14] transition-colors duration-200"
-          >
-            Vía PayPal
-          </a>
+          <p className="text-slate-400 text-xs mt-4 font-bold tracking-[0.2em] uppercase">
+            Binance ID: {binanceId}
+          </p>
         </div>
 
-        <p className="text-slate-400 text-sm mt-8 font-medium">
-          ¿Preguntas sobre seguridad? <a href="mailto:hello@bling.uy" className="text-[#FFCC00] hover:underline transition-colors">hello@bling.uy</a>
+        <p className="text-slate-500 text-sm mt-12 font-medium">
+          ¿Dudas sobre el proceso? <a href="mailto:hello@bling.uy" className="text-[#F3BA2F] hover:underline transition-colors">hello@bling.uy</a>
         </p>
       </div>
     </section>
