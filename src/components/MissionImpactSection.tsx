@@ -63,7 +63,7 @@ export function MissionImpactSection() {
               className="text-white text-4xl md:text-6xl font-black leading-tight"
             >
               Tu aporte es el motor del <br />
-              <span className="text-transparent bg-clip-text bg-linear-to-r from-white via-white/80 to-white/40">futuro de la información.</span>
+              <span className="text-transparent bg-clip-text bg-linear-to-r from-white via-white/80 to-yellow-500">futuro de la información.</span>
             </motion.h2>
           </div>
           <motion.div 

@@ -48,22 +48,30 @@ export const publicDonations = [
 
 export const teamMembers = [
   {
-    name: "Member 1",
-    photo: "https://api.dicebear.com/7.x/avataaars/svg?seed=Felix",
-    role: "Core Team",
+    name: 'Yesenia González',
+    role: 'Fullstack Developer | AI & Creative Coder',
+    photo: '/images/avif/team/YeseniaGonzalez.avif',
+    description:
+      'Desarrolladora Fullstack enfocada en crear soluciones innovadoras que integran IA y desarrollo web. Con formación en Arte y Música y experiencia construyendo aplicaciones con React, Next.js y Python (FastAPI, OpenCV), aporta una mirada creativa a la ingeniería, donde la lógica se combina con sensibilidad artística. Destaca en automatización avanzada (OCR, YOLOv5), construcción de APIs escalables y despliegues eficientes con Docker, integrando tecnología y creatividad para ofrecer sistemas precisos, funcionales y de alto rendimiento.',
+    tech: 'React · Next.js · Node.js · Python · FastAPI · OpenCV · YOLOv5 · Docker · PostgreSQL · MongoDB · Machine Learning · Express.js',
     socials: {
-      instagram: "https://instagram.com/",
-      x: "https://x.com/",
-      linkedin: "https://linkedin.com/"
-    }
+      github: 'https://github.com/yesiviola',
+      linkedin: 'https://www.linkedin.com/in/keilaygonzalez/',
+      x: 'https://x.com/yeseniagon96248',
+      website: 'https://bling.uy/',
+    },
   },
   {
-    name: "Member 2",
-    photo: "https://api.dicebear.com/7.x/avataaars/svg?seed=Aneka",
-    role: "Core Team",
+    name: 'Nickolás Machado',
+    role: 'Fundador de Bling | Especialista en E-commerce y Estrategia Digital',
+    photo: '/images/avif/team/NickolasMachado.avif',
+    description:
+      'Nick es un constructor de soluciones digitales con más de una década transformando ideas en productos concretos. Su trayectoria combina diseño, desarrollo, estrategia comercial y una comprensión precisa del comportamiento del usuario. Ha impulsado proyectos de comercio electrónico, marketing y optimización operativa que destacan por su funcionalidad, capacidad de escalar y enfoque en métricas reales. Su fortaleza principal es la ejecución: identifica oportunidades, diseña el camino y lleva cada iniciativa desde el concepto hasta el rendimiento sostenido. Domina la integración de procesos creativos y tecnológicos, construyendo sistemas estables, eficientes y orientados a impacto. Hoy lidera proyectos de alto potencial con una visión clara: crear productos competitivos, sostenibles y preparados para crecer. Su método es metódico, ambicioso y disciplinado. No especula: ejecuta, mejora y avanza. Nick convierte complejidad en acción y acción en resultados.',
+    tech: 'Diseñador Gráfico Sr. · Productor Audiovisual · Programador Frontend • Next.js · Tailwind · C# · Node.js · UX/UI · Ads Meta & Google · Automatización · Estrategia Comercial · Administración Empresarial · Sociología Aplicada · Logística',
     socials: {
-      x: "https://x.com/",
-      instagram: "https://instagram.com/"
-    }
-  }
+      github: 'https://github.com/notibling',
+      linkedin: 'https://www.linkedin.com/in/nickolasmachado/',
+      website: 'https://bling.uy/',
+    },
+  },
 ];
