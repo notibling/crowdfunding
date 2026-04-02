@@ -48,7 +48,7 @@ export function TeamModal({ member, onClose }: TeamModalProps) {
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.9, opacity: 0, y: 20 }}
             onClick={(e) => e.stopPropagation()}
-            className="bg-[#111318] border border-white/10 w-full max-w-2xl rounded-[2.5rem] overflow-hidden shadow-2xl relative"
+            className="bg-[#111318] border border-white/10 w-full max-w-5xl rounded-[2.5rem] overflow-hidden shadow-2xl relative"
           >
             <button 
               onClick={onClose}
@@ -99,8 +99,8 @@ export function TeamModal({ member, onClose }: TeamModalProps) {
                 
                 <div className="space-y-8">
                   <div>
-                    <h4 className="text-white/40 text-[10px] font-black uppercase tracking-[0.2em] mb-3">Biografía</h4>
-                    <p className="text-slate-300 text-sm leading-relaxed font-medium">
+                    <h4 className="text-white/40  text-[10px] font-black uppercase tracking-[0.2em] mb-3">Biografía</h4>
+                    <p className="text-slate-300 text-sm leading-relaxed font-medium text-balance text-justify">
                       {member.description}
                     </p>
                   </div>
