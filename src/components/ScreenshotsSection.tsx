@@ -22,13 +22,13 @@ export function ScreenshotsSection() {
           <motion.div
             key={currentBg}
             initial={{ opacity: 0 }}
-            animate={{ opacity: 0.3 }}
+            animate={{ opacity: 0.8 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 1.5, ease: "easeInOut" }}
             className="absolute inset-0"
           >
             <div 
-              className="absolute inset-0 bg-cover bg-center bg-no-repeat blur-[100px] scale-110"
+              className="absolute inset-0 bg-cover bg-center bg-no-repeat blur-[40px] scale-110"
               style={{ backgroundImage: `url('${currentBg}')` }}
             />
             <div className="absolute inset-0 bg-[#111318]/40" />
@@ -44,8 +44,8 @@ export function ScreenshotsSection() {
           <h2 className="text-white text-4xl md:text-5xl font-black leading-tight mb-4">
             Así se ve Bling por dentro.
           </h2>
-          <p className="text-slate-400 text-lg max-w-xl mx-auto">
-            Capturas reales del trabajo de más de tres años. Deslizá y hacé click para ampliar.
+          <p className="text-slate-200 text-lg max-w-xl mx-auto">
+            Capturas reales del trabajo de más de tres años. <br/>Deslizá y hacé click para ampliar.
           </p>
         </div>
 
@@ -55,6 +55,7 @@ export function ScreenshotsSection() {
             grabCursor={true}
             centeredSlides={true}
             slidesPerView={'auto'}
+            loop={true}
             coverflowEffect={{
               rotate: 30,
               stretch: 0,
@@ -82,7 +83,7 @@ export function ScreenshotsSection() {
               <SwiperSlide key={i} className="max-w-[300px] sm:max-w-[500px] md:max-w-[700px]">
                 <div 
                   onClick={() => setZoomImage(s.src)}
-                  className="group relative aspect-video overflow-hidden rounded-xl border border-white/10 bg-slate-900 shadow-2xl cursor-zoom-in"
+                  className="group relative aspect-[16/10] overflow-hidden rounded-xl border border-white/10 bg-slate-900 shadow-2xl cursor-zoom-in"
                 >
                   <img
                     src={s.src}

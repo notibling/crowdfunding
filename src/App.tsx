@@ -8,6 +8,7 @@ const ScreenshotsSection = lazy(() => import('./components/ScreenshotsSection').
 const CollaboratorsSection = lazy(() => import('./components/CollaboratorsSection').then(m => ({ default: m.CollaboratorsSection })));
 const CompaniesSection = lazy(() => import('./components/CompaniesSection').then(m => ({ default: m.CompaniesSection })));
 const WhyCrowdfundingSection = lazy(() => import('./components/WhyCrowdfundingSection').then(m => ({ default: m.WhyCrowdfundingSection })));
+const MissionImpactSection = lazy(() => import('./components/MissionImpactSection').then(m => ({ default: m.MissionImpactSection })));
 const CTASection = lazy(() => import('./components/CTASection').then(m => ({ default: m.CTASection })));
 const TransparencySection = lazy(() => import('./components/TransparencySection').then(m => ({ default: m.TransparencySection })));
 const ClosingSection = lazy(() => import('./components/ClosingSection').then(m => ({ default: m.ClosingSection })));
@@ -34,6 +35,7 @@ export default function App() {
         <CollaboratorsSection />
         <CompaniesSection />
         <WhyCrowdfundingSection />
+        <MissionImpactSection />
         <CTASection onOpenPayment={() => setIsPaymentOpen(true)} />
         <TransparencySection />
         <ClosingSection />
