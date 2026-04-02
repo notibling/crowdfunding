@@ -32,8 +32,16 @@ const impactPoints = [
 export function MissionImpactSection() {
   return (
     <section className="relative px-6 py-32 bg-[#0D0F14] overflow-hidden">
-      {/* Elementos decorativos de fondo */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#F3BA2F]/5 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2" />
+      {/* Fondo de imagen con opacidad y gradientes */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-80"
+        style={{ backgroundImage: "url('/images/Flying.avif')" }}
+      />
+      <div className="absolute inset-0 bg-linear-to-b from-[#0D0F14] via-[#0D0F14]/40 to-[#0D0F14] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#0D0F14_100%)] opacity-60 pointer-events-none" />
+
+      {/* Elementos decorativos de fondo adicionales */}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#F3BA2F]/10 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2" />
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-500/5 rounded-full blur-[120px] translate-y-1/2 -translate-x-1/2" />
 
       <div className="relative z-10 max-w-6xl mx-auto">
