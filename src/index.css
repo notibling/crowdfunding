@@ -821,16 +821,20 @@ html.light .news-container .news-shadow-lg,
 }
 
 .custom-scrollbar::-webkit-scrollbar {
-  width: 4px;
+  width: 6px;
 }
+
 .custom-scrollbar::-webkit-scrollbar-track {
-  background: var(--nc-bg-0);
+  background: transparent;
 }
+
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background: var(--nc-border);
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
 }
+
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: var(--nc-border-focus);
+  background: rgba(255, 255, 255, 0.2);
 }
 /* ----------------------------------------------------------- BLING BOX CONTAINER 1 */
 .bling-box-container {

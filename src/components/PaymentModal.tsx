@@ -1,18 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, ShieldCheck, Copy, CheckCircle2 } from 'lucide-react';
-import { BinanceIcon } from './BinanceIcon';
-import { binanceId } from '../constants';
+import { X, ShieldCheck } from 'lucide-react';
+import { PayPalIcon } from './PayPalIcon';
+import { paypalClientId, paypalAppName } from '../constants';
+import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 
 export function PaymentModal({ isOpen, onClose }: { isOpen: boolean, onClose: () => void }) {
-  const [copied, setCopied] = useState(false);
-
-  const handleCopy = () => {
-    navigator.clipboard.writeText(binanceId);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
-
   return (
     <AnimatePresence>
       {isOpen && (
@@ -27,80 +20,94 @@ export function PaymentModal({ isOpen, onClose }: { isOpen: boolean, onClose: ()
             initial={{ scale: 0.9, opacity: 0, y: 20 }}
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.9, opacity: 0, y: 20 }}
-            className="bg-[#111318] border border-white/10 w-full max-w-md rounded-2xl overflow-hidden shadow-2xl"
+            className="bg-[#111318] border border-white/10 w-full max-w-md rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh]"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Header */}
-            <div className="bg-[#F3BA2F] p-6 text-[#0D0F14] flex justify-between items-center">
+            <div className="bg-[#16181D] p-6 text-white flex justify-between items-center shrink-0 border-b border-white/5">
               <div className="flex items-center gap-3">
-                <BinanceIcon className="w-8 h-8" />
+                <div className="bg-[#0070BA]/10 p-2 rounded-lg">
+                  <PayPalIcon className="w-6 h-6 text-[#0070BA]" />
+                </div>
                 <div>
-                  <h3 className="font-black text-xl tracking-tight uppercase leading-none">Binance Pay</h3>
-                  <p className="text-[10px] font-bold opacity-70 tracking-widest uppercase mt-1">Colaboración Directa</p>
+                  <h3 className="font-black text-xl tracking-tight uppercase leading-none">PayPal</h3>
+                  <p className="text-[10px] font-bold text-slate-500 tracking-widest uppercase mt-1">Colaboración Segura</p>
                 </div>
               </div>
-              <button onClick={onClose} className="hover:scale-110 transition-transform">
+              <button onClick={onClose} className="text-slate-500 hover:text-white transition-colors">
                 <X size={24} />
               </button>
             </div>
 
-            {/* Content */}
-            <div className="p-8">
+            {/* Content - Scrollable */}
+            <div className="p-8 overflow-y-auto custom-scrollbar">
               <div className="text-center mb-8">
                 <p className="text-slate-400 text-sm font-medium mb-6">
-                  Podés colaborar directamente enviando USDT, BUSD o cualquier cripto vía <strong>Binance Pay</strong> utilizando el siguiente ID:
+                  Podés colaborar de forma segura utilizando tu cuenta de <strong>PayPal</strong> o tarjeta de crédito/débito:
                 </p>
                 
-                <div 
-                  onClick={handleCopy}
-                  className="bg-white/5 border border-white/10 rounded-xl p-6 cursor-pointer hover:border-[#F3BA2F]/50 transition-all group relative overflow-hidden"
-                >
-                  <div className="absolute top-0 right-0 p-2 opacity-20 group-hover:opacity-100 transition-opacity">
-                    {copied ? <CheckCircle2 size={16} className="text-[#F3BA2F]" /> : <Copy size={16} />}
-                  </div>
-                  <p className="text-slate-500 text-[10px] font-bold uppercase tracking-[0.2em] mb-1">Binance ID</p>
-                  <p className="text-white text-3xl font-black tracking-wider group-active:scale-95 transition-transform">
-                    {binanceId}
-                  </p>
-                  {copied && (
-                    <motion.p 
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      className="text-[#F3BA2F] text-[10px] font-bold mt-2 uppercase tracking-widest"
-                    >
-                      ¡Copiado al portapapeles!
-                    </motion.p>
-                  )}
-                </div>
-              </div>
-
-              {/* Instructions */}
-              <div className="space-y-4 mb-8">
-                <div className="flex items-start gap-3">
-                  <div className="w-5 h-5 rounded-full bg-[#F3BA2F]/10 border border-[#F3BA2F]/20 flex items-center justify-center text-[#F3BA2F] text-[10px] font-bold mt-0.5">1</div>
-                  <p className="text-slate-400 text-xs leading-relaxed">Abrí tu App de <strong>Binance</strong> y andá a <strong>Pay</strong>.</p>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-5 h-5 rounded-full bg-[#F3BA2F]/10 border border-[#F3BA2F]/20 flex items-center justify-center text-[#F3BA2F] text-[10px] font-bold mt-0.5">2</div>
-                  <p className="text-slate-400 text-xs leading-relaxed">Seleccioná <strong>Enviar</strong> y elegí la opción <strong>ID de Binance</strong>.</p>
-                </div>
-                <div className="flex items-start gap-3">
-                  <div className="w-5 h-5 rounded-full bg-[#F3BA2F]/10 border border-[#F3BA2F]/20 flex items-center justify-center text-[#F3BA2F] text-[10px] font-bold mt-0.5">3</div>
-                  <p className="text-slate-400 text-xs leading-relaxed">Ingresá el ID <span className="text-white font-bold">{binanceId}</span> y el monto a colaborar.</p>
+                <div className="min-h-[150px] flex flex-col items-center justify-center bg-white rounded-2xl p-6 transition-all relative">
+                  <PayPalScriptProvider options={{ 
+                    "client-id": paypalClientId,
+                    currency: "USD",
+                    intent: "capture",
+                    "data-sdk-integration-source": "react-paypal-js"
+                  }}>
+                    <div className="w-full relative z-10">
+                      <PayPalButtons 
+                        style={{ 
+                          layout: "vertical",
+                          color: "gold",
+                          shape: "rect",
+                          label: "donate",
+                          height: 48
+                        }}
+                        createOrder={(data, actions) => {
+                          return actions.order.create({
+                            intent: "CAPTURE",
+                            purchase_units: [
+                              {
+                                description: `Donación para ${paypalAppName}`,
+                                amount: {
+                                  currency_code: "USD",
+                                  value: "10.00",
+                                },
+                              },
+                            ],
+                            application_context: {
+                              shipping_preference: "NO_SHIPPING",
+                              user_action: "PAY_NOW"
+                            }
+                          } as any);
+                        }}
+                        onApprove={async (data, actions) => {
+                          if (actions.order) {
+                            const details = await actions.order.capture();
+                            alert(`Gracias por tu colaboración, ${details.payer.name?.given_name}!`);
+                            onClose();
+                          }
+                        }}
+                      />
+                    </div>
+                  </PayPalScriptProvider>
                 </div>
               </div>
 
               {/* Security Info */}
-              <div className="bg-white/5 rounded-xl p-4 border border-white/5 text-center mb-8">
+              <div className="bg-white/5 rounded-xl p-4 border border-white/5 text-center mb-4">
                 <div className="flex items-center justify-center gap-4 opacity-50 mb-3">
-                  <BinanceIcon className="w-6 h-6" />
-                  <span className="text-white font-black text-xs tracking-tighter">BINANCE PAY</span>
+                  <PayPalIcon className="w-6 h-6" />
+                  <span className="text-white font-black text-xs tracking-tighter uppercase">PayPal Secure Checkout</span>
                 </div>
                 <div className="flex items-center justify-center gap-2 text-slate-500">
-                  <ShieldCheck size={14} className="text-[#F3BA2F]" />
-                  <span className="text-[10px] font-bold uppercase tracking-wider">Transferencia Segura P2P</span>
+                  <ShieldCheck size={14} className="text-[#0070BA]" />
+                  <span className="text-[10px] font-bold uppercase tracking-wider">Protección al donante integrada</span>
                 </div>
               </div>
+              
+              <p className="text-[10px] text-slate-500 text-center uppercase tracking-widest font-bold">
+                Tu apoyo nos permite seguir creando contenido independiente
+              </p>
             </div>
           </motion.div>
         </motion.div>

@@ -1,4 +1,5 @@
-export const binanceId = import.meta.env.VITE_BINANCE_ID || "1231358176";
+export const paypalClientId = import.meta.env.VITE_PAYPAL_CLIENT_ID || "";
+export const paypalAppName = import.meta.env.VITE_PAYPAL_DISPLAY_APP_NAME || "Bling Crowdfunding";
 
 export const screenshots = [
   {
@@ -37,8 +38,37 @@ export const collaborators = [
   // { name: "Colaborador 1", photo: "/images/collaborators/1.jpg", link: "https://x.com/colab1" },
 ];
 
-export const partnerCompanies = [
-  // { name: "Empresa 1", logo: "/images/partners/1.svg", link: "https://empresa1.com" },
+export const friendVentures = [
+  { 
+    name: "Bling.uy", 
+    logo: "/images/bling_light.avif", 
+    link: "https://bling.uy",
+    description: "Plataforma de medios independientes."
+  },
+  { 
+    name: "Bling Ads", 
+    logo: "/images/Ads.avif", 
+    link: "https://bling.uy",
+    description: "Servicios creativos digitales."
+  },
+  { 
+    name: "Bling News", 
+    logo: "/images/Bling_Periodista.avif", 
+    link: "https://bling.uy",
+    description: "Periodismo y Comunicación."
+  },
+  { 
+    name: "Bling Data", 
+    logo: "/images/Transparency.avif", 
+    link: "https://bling.uy",
+    description: "Transparencia y Datos."
+  },
+  { 
+    name: "Bling Labs", 
+    logo: "/images/Flying.avif", 
+    link: "https://bling.uy",
+    description: "Innovación y Desarrollo."
+  },
 ];
 
 export const publicDonations = [

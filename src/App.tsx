@@ -6,7 +6,7 @@ const StorySection = lazy(() => import('./components/StorySection').then(m => ({
 const WhatIsBlingSection = lazy(() => import('./components/WhatIsBlingSection').then(m => ({ default: m.WhatIsBlingSection })));
 const ScreenshotsSection = lazy(() => import('./components/ScreenshotsSection').then(m => ({ default: m.ScreenshotsSection })));
 const CollaboratorsSection = lazy(() => import('./components/CollaboratorsSection').then(m => ({ default: m.CollaboratorsSection })));
-const CompaniesSection = lazy(() => import('./components/CompaniesSection').then(m => ({ default: m.CompaniesSection })));
+const PartnersSection = lazy(() => import('./components/PartnersSection').then(m => ({ default: m.PartnersSection })));
 const WhyCrowdfundingSection = lazy(() => import('./components/WhyCrowdfundingSection').then(m => ({ default: m.WhyCrowdfundingSection })));
 const MissionImpactSection = lazy(() => import('./components/MissionImpactSection').then(m => ({ default: m.MissionImpactSection })));
 const CTASection = lazy(() => import('./components/CTASection').then(m => ({ default: m.CTASection })));
@@ -33,11 +33,12 @@ export default function App() {
         <WhatIsBlingSection />
         <ScreenshotsSection />
         <CollaboratorsSection />
-        <CompaniesSection />
+       
         <WhyCrowdfundingSection />
         <MissionImpactSection />
         <CTASection onOpenPayment={() => setIsPaymentOpen(true)} />
         <TransparencySection />
+         <PartnersSection />
         <ClosingSection />
         <PaymentModal isOpen={isPaymentOpen} onClose={() => setIsPaymentOpen(false)} />
         <ScrollToTop />
