@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /api
+
+# Bloquear bots conocidos de scraping agresivo
+User-agent: GPTBot
+Disallow: /
+
+User-agent: CCBot
+Disallow: /

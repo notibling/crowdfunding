@@ -14,6 +14,7 @@ const TransparencySection = lazy(() => import('./components/TransparencySection'
 const ClosingSection = lazy(() => import('./components/ClosingSection').then(m => ({ default: m.ClosingSection })));
 const PaymentModal = lazy(() => import('./components/PaymentModal').then(m => ({ default: m.PaymentModal })));
 const ScrollToTop = lazy(() => import('./components/ScrollToTop').then(m => ({ default: m.ScrollToTop })));
+const ErrorBoundary = lazy(() => import('./components/ErrorBoundary').then(m => ({ default: m.ErrorBoundary })));
 
 // Loading component
 const SectionLoader = () => (
@@ -26,23 +27,25 @@ export default function App() {
   const [isPaymentOpen, setIsPaymentOpen] = useState(false);
 
   return (
-    <main className="font-montserrat bg-linear-to-t from-[#08090d] via-[#0D0F14] to-[#08090d]">
-      <Suspense fallback={<SectionLoader />}>
-        <HeroSection />
-        <StorySection />
-        <WhatIsBlingSection />
-        <ScreenshotsSection />
-        <CollaboratorsSection />
-       
-        <WhyCrowdfundingSection />
-        <MissionImpactSection />
-        <CTASection onOpenPayment={() => setIsPaymentOpen(true)} />
-        <TransparencySection />
-         <PartnersSection />
-        <ClosingSection />
-        <PaymentModal isOpen={isPaymentOpen} onClose={() => setIsPaymentOpen(false)} />
-        <ScrollToTop />
-      </Suspense>
-    </main>
+    <ErrorBoundary>
+      <main className="font-montserrat bg-linear-to-t from-[#08090d] via-[#0D0F14] to-[#08090d]">
+        <Suspense fallback={<SectionLoader />}>
+          <HeroSection />
+          <StorySection />
+          <WhatIsBlingSection />
+          <ScreenshotsSection />
+          <CollaboratorsSection />
+         
+          <WhyCrowdfundingSection />
+          <MissionImpactSection />
+          <CTASection onOpenPayment={() => setIsPaymentOpen(true)} />
+          <TransparencySection />
+           <PartnersSection />
+          <ClosingSection />
+          <PaymentModal isOpen={isPaymentOpen} onClose={() => setIsPaymentOpen(false)} />
+          <ScrollToTop />
+        </Suspense>
+      </main>
+    </ErrorBoundary>
   );
 }
