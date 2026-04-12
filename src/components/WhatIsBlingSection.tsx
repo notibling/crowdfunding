@@ -30,15 +30,15 @@ export function WhatIsBlingSection() {
   ];
 
   return (
-    <section className="relative bg-[#111318] px-6 py-28 overflow-hidden">
-      {/* Imagen de fondo con opacidad baja */}
+    <section className="relative bg-[#020617] px-6 py-28 overflow-hidden">
+
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40"
         style={{ backgroundImage: "url('/images/Ads.avif')" }}
       />
       {/* Gradientes para fundir el fondo */}
-      <div className="absolute inset-0 bg-linear-to-b from-[#111318] via-[#111318]/60 to-[#111318] pointer-events-none" />
-      <div className="absolute inset-0 bg-linear-to-r from-[#111318] via-transparent to-[#111318] pointer-events-none opacity-40" />
+      <div className="absolute inset-0 bg-linear-to-b from-[#020617] via-[#020617]/60 to-[#020617] pointer-events-none" />
+      <div className="absolute inset-0 bg-linear-to-r from-[#020617] via-transparent to-[#020617] pointer-events-none opacity-40" />
 
       <div className="relative z-10 max-w-5xl mx-auto">
         <p className="text-[#FFCC00] text-xs font-semibold tracking-[0.3em] uppercase mb-4 text-center">
@@ -56,7 +56,7 @@ export function WhatIsBlingSection() {
             <motion.div
               key={i}
               whileHover={{ y: -5 }}
-              className="border border-white/10 bg-[#0D0F14]/80 backdrop-blur-md p-8 hover:border-[#FFCC00]/40 transition-all duration-300"
+              className=" bg-slate-900/50 border-2 border-slate-800 backdrop-blur-lg rounded-2xl p-8 hover:border-[#FFCC00]/40 transition-all duration-300"
             >
               <span className="text-[#FFCC00] text-2xl block mb-4">{f.icon}</span>
               <h3 className="text-white font-bold text-xl mb-3">{f.title}</h3>

@@ -20,16 +20,18 @@ export function PartnersSection() {
   };
 
   return (
-    <section className="bg-[#08090D] min-h-[600px] py-16 px-6 border-t border-white/5 relative overflow-hidden">
+    <section className="bg-[#020617] min-h-[600px] py-16 px-6 relative overflow-hidden">
       {/* Fondo de imagen con gradiente */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-100"
         style={{ backgroundImage: "url('/images/Bling_Expo.avif')" }}
       />
-      <div className="absolute inset-0 bg-linear-to-b from-[#08090D] via-[#08090D]/30 to-[#08090D] pointer-events-none" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#08090D_100%)] opacity-60 pointer-events-none" />
+               {/* Overlay para asegurar legibilidad */}
+      <div className="absolute inset-0 bg-linear-to-b from-[#020617]  via-transparent to-[#020617] pointer-events-none" />
 
-      {/* Background Decor */}
+                {/* Overlay para asegurar legibilidad */}
+      <div className="absolute inset-0 bg-linear-to-b from-[#020617]  via-transparent to-[#020617] pointer-events-none" />
+     {/* Background Decor */}
       <div className="absolute top-0 right-0 w-64 h-64 bg-[#0070BA]/5 blur-[120px] rounded-full pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#F3BA2F]/5 blur-[120px] rounded-full pointer-events-none" />
 
@@ -80,7 +82,7 @@ export function PartnersSection() {
               transition={{ delay: index * 0.05 }}
               whileHover={{ y: -5 }}
               onClick={() => handlePartnerClick(partner.name, partner.link)}
-              className="group cursor-pointer bg-zinc-900/90 border border-white/5 rounded-2xl p-4 flex flex-col items-center justify-center transition-all duration-300 hover:bg-white/10 hover:border-[#0070BA]/30 hover:shadow-[0_0_30px_rgba(0,112,186,0.1)] relative overflow-hidden"
+              className="group cursor-pointer bg-slate-900/50 border-2 border-slate-800 backdrop-blur-lg rounded-2xl p-4 flex flex-col items-center justify-center transition-all duration-300 hover:bg-white/10 hover:border-[#0070BA]/30 hover:shadow-[0_0_30px_rgba(0,112,186,0.1)] relative overflow-hidden"
             >
               <div className="aspect-video! rounded-xl object-contain overflow-hidden  w-full mb-4 flex items-center justify-center grayscale group-hover:grayscale-0 transition-all duration-500 opacity-50 group-hover:opacity-100">
                 <img 
@@ -109,7 +111,7 @@ export function PartnersSection() {
           className="mt-16 text-center max-w-2xl mx-auto"
         >
           <div className="inline-block p-px rounded-2xl bg-linear-to-r from-white/5 via-[#ffcc00]/20 to-white/5">
-            <div className="bg-[#0D0F14]/80 backdrop-blur-md rounded-2xl px-8 py-10 border border-white/5">
+            <div className="bg-[#0f172a]/80 backdrop-blur-md rounded-2xl px-8 py-10 border border-white/5">
               <h4 className="text-white text-xl font-black uppercase tracking-tighter mb-4">
                 ¿Querés que tu emprendimiento aparezca acá?
               </h4>
@@ -118,7 +120,7 @@ export function PartnersSection() {
               </p>
               <a
                 href="mailto:hello@bling.uy"
-                className="inline-flex items-center gap-3 bg-white text-[#0D0F14] font-black text-[10px] tracking-[0.2em] uppercase px-10 py-5 rounded-xl hover:bg-[#ffcc00] transition-all duration-300 shadow-xl shadow-black/50 group"
+                className="inline-flex items-center gap-3 bg-white text-[#020617] font-black text-[10px] tracking-[0.2em] uppercase px-10 py-5 rounded-xl hover:bg-[#ffcc00] transition-all duration-300 shadow-xl shadow-slate-950/50 group"
               >
                 <span>hello@bling.uy</span>
                 <span className="group-hover:translate-x-1 transition-transform">→</span>

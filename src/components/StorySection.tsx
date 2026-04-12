@@ -2,20 +2,20 @@ import React from 'react';
 import { motion } from 'framer-motion';
 export function StorySection() {
   return (
-    <section id="historia" className="bg-[#08090d] relative px-6 py-28 overflow-hidden">
+    <section id="historia" className="bg-[#020617]  items-center justify-center flex text-shadow-xl min-h-screen relative px-6 py-28 overflow-hidden">
       <motion.div 
         initial={{ scale: 1.1, opacity: 0 }}
-        whileInView={{ scale: 1, opacity: 0.25 }}
+        whileInView={{ scale: 1, opacity: 0.8 }}
         viewport={{ once: true }}
         transition={{ duration: 1.5, ease: "easeOut" }}
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat blur-sm pointer-events-none"
-        style={{ backgroundImage: "url('/images/Bling_Forge.avif')" }}
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat blur-xs pointer-events-none"
+        style={{ backgroundImage: "url('/images/Bling_Study.avif')" }}
       />
       
       {/* Overlay para asegurar legibilidad */}
-      <div className="absolute inset-0 bg-linear-to-b from-[#08090d] via-transparent to-[#08090d] pointer-events-none" />
+      <div className="absolute inset-0 bg-linear-to-b from-[#020617]  via-transparent to-[#020617] pointer-events-none" />
 
-      <div className="max-w-3xl mx-auto relative z-10">
+      <div className="max-w-3xl mx-auto relative z-10 bg-slate-900/50 border-2 border-slate-800 backdrop-blur-lg p-12 rounded-2xl shadow-lg">
         <p className="text-[#FFCC00] text-xs font-semibold tracking-[0.3em] uppercase mb-4">
           Tres años de trabajo
         </p>

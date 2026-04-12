@@ -17,14 +17,14 @@ export function ConfirmationModal({ isOpen, onClose, onConfirm, partnerName }: C
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-110 flex items-center justify-center bg-black/90 backdrop-blur-md p-4"
+          className="fixed inset-0 z-130 flex items-center justify-center bg-slate-950/90 backdrop-blur-md p-4"
           onClick={onClose}
         >
           <motion.div
             initial={{ scale: 0.9, opacity: 0, y: 20 }}
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.9, opacity: 0, y: 20 }}
-            className="bg-[#111318] border border-white/10 w-full max-w-sm rounded-2xl overflow-hidden shadow-2xl p-8 text-center"
+            className="bg-[#0f172a] border border-white/10 w-full max-w-sm rounded-2xl overflow-hidden shadow-2xl p-8 text-center"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex justify-end mb-2">

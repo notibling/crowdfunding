@@ -15,7 +15,7 @@ export function ScreenshotsSection() {
   const [currentBg, setCurrentBg] = useState(screenshots[0].src);
 
   return (
-    <section className="relative bg-[#111318] px-6 py-28 border-t border-white/5 overflow-hidden transition-colors duration-1000">
+    <section className="relative bg-slate-900 px-6 py-28 border-t border-white/5 overflow-hidden transition-colors duration-1000">
       {/* Fondo Dinámico con Crossfade */}
       <div className="absolute inset-0 pointer-events-none">
         <AnimatePresence>
@@ -31,7 +31,7 @@ export function ScreenshotsSection() {
               className="absolute inset-0 bg-cover bg-center bg-no-repeat blur-[40px] scale-110"
               style={{ backgroundImage: `url('${currentBg}')` }}
             />
-            <div className="absolute inset-0 bg-[#111318]/40" />
+            <div className="absolute inset-0 bg-slate-900/40" />
           </motion.div>
         </AnimatePresence>
       </div>
@@ -91,7 +91,7 @@ export function ScreenshotsSection() {
                     className="w-full h-full object-cover"
                   />
                   {/* Overlay con caption al hacer hover */}
-                  <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                  <div className="absolute inset-0 bg-linear-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
                     <div className="flex items-center justify-between">
                       <div>
                         <p className="text-[#FFCC00] text-xs font-bold tracking-widest uppercase mb-1">Captura #{i + 1}</p>
@@ -106,10 +106,10 @@ export function ScreenshotsSection() {
           </Swiper>
 
           {/* Botones de navegación personalizados */}
-          <button className="swiper-button-prev-custom absolute left-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 hidden md:flex items-center justify-center rounded-full bg-white/5 border border-white/10 text-white hover:bg-[#FFCC00] hover:text-[#0D0F14] transition-all duration-300 cursor-pointer">
+          <button className="swiper-button-prev-custom absolute left-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 hidden md:flex items-center justify-center rounded-full bg-white/5 border border-white/10 text-white hover:bg-[#FFCC00] hover:text-slate-950 transition-all duration-300 cursor-pointer">
             <ArrowLeft size={20} />
           </button>
-          <button className="swiper-button-next-custom absolute right-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 hidden md:flex items-center justify-center rounded-full bg-white/5 border border-white/10 text-white hover:bg-[#FFCC00] hover:text-[#0D0F14] transition-all duration-300 cursor-pointer">
+          <button className="swiper-button-next-custom absolute right-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 hidden md:flex items-center justify-center rounded-full bg-white/5 border border-white/10 text-white hover:bg-[#FFCC00] hover:text-slate-950 transition-all duration-300 cursor-pointer">
             <ArrowRight size={20} />
           </button>
         </div>
@@ -123,7 +123,7 @@ export function ScreenshotsSection() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setZoomImage(null)}
-            className="fixed inset-0 z-100 flex items-center justify-center bg-black/95 p-4 md:p-10 cursor-zoom-out"
+            className="fixed inset-0 z-130 flex items-center justify-center bg-slate-950/95 p-4 md:p-10 cursor-zoom-out"
           >
             <motion.button
               initial={{ scale: 0.5, opacity: 0 }}

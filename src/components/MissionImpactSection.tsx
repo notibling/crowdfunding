@@ -31,14 +31,14 @@ const impactPoints = [
 
 export function MissionImpactSection() {
   return (
-    <section className="relative px-6 py-32 bg-[#0D0F14] overflow-hidden">
+    <section className="relative px-6 py-32 bg-slate-950 overflow-hidden">
       {/* Fondo de imagen con opacidad y gradientes */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-80"
         style={{ backgroundImage: "url('/images/Flying.avif')" }}
       />
-      <div className="absolute inset-0 bg-linear-to-b from-[#0D0F14] via-[#0D0F14]/40 to-[#0D0F14] pointer-events-none" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#0D0F14_100%)] opacity-60 pointer-events-none" />
+      <div className="absolute inset-0 bg-linear-to-b from-slate-950 via-slate-950/40 to-slate-950 pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#020617_100%)] opacity-60 pointer-events-none" />
 
       {/* Elementos decorativos de fondo adicionales */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#F3BA2F]/10 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2" />
@@ -70,7 +70,7 @@ export function MissionImpactSection() {
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="hidden md:flex flex-col items-center gap-2 p-6 rounded-2xl border border-white/5 bg-white/2 backdrop-blur-sm"
+            className="hidden md:flex flex-col items-center gap-2 p-6 bg-slate-900/50 border-2 border-slate-800 backdrop-blur-lg rounded-2xl"
           >
             <Target className="w-8 h-8 text-[#F3BA2F] animate-pulse" />
             <span className="text-white font-black text-2xl">Meta 2026</span>
@@ -86,13 +86,13 @@ export function MissionImpactSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="group backdrop-blur-[20px] p-8 rounded-3xl border border-white/5 bg-white/2 hover:bg-white/5 hover:border-[#F3BA2F]/30 transition-all duration-500 relative overflow-hidden"
+              className="group p-8 rounded-2xl bg-slate-900/50 border-2 border-slate-800 backdrop-blur-lg  hover:bg-white/5 hover:border-[#F3BA2F]/30 transition-all duration-500 relative overflow-hidden"
             >
               {/* Brillo al hover */}
               <div className="absolute  inset-0 bg-radial-gradient(circle_at_top_right,rgba(243,186,47,0.1),transparent_70%) opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               
               <div className="relative z-10">
-                <div className="w-12 h-12 rounded-xl bg-[#F3BA2F]/10 border border-[#F3BA2F]/20 flex items-center justify-center text-[#F3BA2F] mb-6 group-hover:scale-110 transition-transform duration-500">
+                <div className="w-12 h-12  bg-slate-900/50 border-2 border-slate-800 backdrop-blur-lg rounded-2xl flex items-center justify-center text-[#F3BA2F] mb-6 group-hover:scale-110 transition-transform duration-500">
                   {point.icon}
                 </div>
                 <h3 className="text-white text-xl font-black mb-4 tracking-tight group-hover:text-[#F3BA2F] transition-colors">

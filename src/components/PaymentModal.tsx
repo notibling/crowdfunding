@@ -13,18 +13,18 @@ export function PaymentModal({ isOpen, onClose }: { isOpen: boolean, onClose: ()
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-100 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4"
+          className="fixed inset-0 z-130 flex items-center justify-center bg-slate-950/80 backdrop-blur-sm p-4"
           onClick={onClose}
         >
           <motion.div
             initial={{ scale: 0.9, opacity: 0, y: 20 }}
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.9, opacity: 0, y: 20 }}
-            className="bg-[#111318] border border-white/10 w-full max-w-md rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh]"
+            className="bg-[#0f172a] border border-white/10 w-full max-w-md rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh]"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Header */}
-            <div className="bg-[#16181D] p-6 text-white flex justify-between items-center shrink-0 border-b border-white/5">
+            <div className="bg-[#1e293b] p-6 text-white flex justify-between items-center shrink-0 border-b border-white/5">
               <div className="flex items-center gap-3">
                 <div className="bg-[#0070BA]/10 p-2 rounded-lg">
                   <PayPalIcon className="w-6 h-6 text-[#0070BA]" />
@@ -53,7 +53,7 @@ export function PaymentModal({ isOpen, onClose }: { isOpen: boolean, onClose: ()
                       <p className="text-slate-400 text-[11px] leading-relaxed mb-4">
                         La credencial <code className="bg-red-500/10 px-1 rounded text-red-400">VITE_PAYPAL_CLIENT_ID</code> no se encuentra en el entorno de producción.
                       </p>
-                      <div className="text-left bg-black/20 p-3 rounded-lg text-[9px] text-slate-500 font-mono">
+                      <div className="text-left bg-slate-950/20 p-3 rounded-lg text-[9px] text-slate-500 font-mono">
                         <p className="mb-1">Solución:</p>
                         <p>1. Ir a Vercel Dashboard</p>
                         <p>2. Settings &rarr; Environment Variables</p>

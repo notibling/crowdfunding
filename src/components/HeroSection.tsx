@@ -15,7 +15,7 @@ export function HeroSection() {
       {/* Imagen de fondo */}
       <motion.div
         initial={{ scale: 1.08, opacity: 0 }}
-        animate={{ scale: 1, opacity: 0.25 }}
+        animate={{ scale: 1, opacity: 0.3 }}
         transition={{ duration: 2, ease: 'easeOut' }}
         className="absolute inset-0 bg-cover bg-center bg-no-repeat pointer-events-none"
         style={{
@@ -28,10 +28,10 @@ export function HeroSection() {
       <div className="absolute inset-0 pointer-events-none"
         style={{
           background: `linear-gradient(to bottom,
-            #08090d 0%,
-            rgba(8,9,13,0.15) 30%,
-            rgba(13,15,20,0.55) 60%,
-            #08090d 100%
+            #020617 0%,
+            rgba(2,6,23,0.15) 30%,
+            rgba(15,23,42,0.55) 60%,
+            #020617 100%
           )`,
         }}
       />
@@ -39,7 +39,7 @@ export function HeroSection() {
       {/* Viñeta radial */}
       <div className="absolute inset-0 pointer-events-none"
         style={{
-          background: 'radial-gradient(ellipse 80% 80% at 50% 50%, transparent 40%, rgba(8,9,13,0.7) 100%)',
+          background: 'radial-gradient(ellipse 80% 80% at 50% 50%, transparent 40%, rgba(2,6,23,0.7) 100%)',
         }}
       />
 
@@ -60,13 +60,13 @@ export function HeroSection() {
         {/* Titular */}
         <motion.h1
           {...fadeUp(0.5)}
-          className="font-serif text-white leading-[0.95] tracking-tight mb-4"
-          style={{ fontSize: 'clamp(2.8rem, 8vw, 6.5rem)', fontWeight: 900 }}
+          className="font-serif text-shadow-xl text-4xl md:text-6xl text-white leading-[0.95] tracking-tight mb-4"
+          style={{ fontSize: '', fontWeight: 900 }}
         >
           La información libre
           <br />
           <em
-            className="not-italic"
+            className="not-italic text-shadow-xl"
             style={{
               background: 'linear-gradient(90deg, #fff5b7 0%, #ffdc52 35%, #FFCC00 70%, #e6a800 100%)',
               WebkitBackgroundClip: 'text',
@@ -120,7 +120,7 @@ export function HeroSection() {
         >
           <a
             href="#colaborar"
-            className="inline-flex items-center gap-2.5 bg-[#FFCC00] text-[#08090d] font-semibold text-xs tracking-[0.2em] uppercase px-9 py-4 transition-all duration-300 hover:bg-[#ffe033] hover:translate-y-[-1px] group"
+            className="inline-flex items-center gap-2.5 bg-[#FFCC00] text-[#020617] font-semibold text-xs tracking-[0.2em] uppercase px-9 py-4 transition-all duration-300 hover:bg-[#ffe033] hover:translate-y-[-1px] group"
             style={{
               clipPath: 'polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px))',
             }}
@@ -135,6 +135,27 @@ export function HeroSection() {
           >
             Nuestra historia
           </a>
+        </motion.div>
+
+        {/* Momentum / Social Proof */}
+        <motion.div 
+          {...fadeUp(1.5)} 
+          className="mt-16 flex flex-wrap items-center justify-center gap-x-12 gap-y-8"
+        >
+          <div className="flex flex-col items-center">
+            <span className="text-[#FFCC00] text-xl md:text-3xl font-bold tracking-tight mb-1">+3 Años</span>
+            <span className="text-[10px] text-slate-300 font-medium uppercase tracking-[0.2em]">Desarrollo</span>
+          </div>
+          <div className="hidden md:block w-px h-8 bg-white/10" />
+          <div className="flex flex-col items-center">
+            <span className="text-[#FFCC00] text-xl md:text-3xl font-bold tracking-tight mb-1">+5 Servicios</span>
+            <span className="text-[10px] text-slate-300 font-medium uppercase tracking-[0.2em]">Ecosistema</span>
+          </div>
+          <div className="hidden md:block w-px h-8 bg-white/10" />
+          <div className="flex flex-col items-center">
+            <span className="text-[#FFCC00] text-xl md:text-3xl font-bold tracking-tight mb-1">2026 Meta</span>
+            <span className="text-[10px] text-slate-300 font-medium uppercase tracking-[0.2em]">Lanzamiento</span>
+          </div>
         </motion.div>
       </div>
 

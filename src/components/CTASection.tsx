@@ -5,15 +5,15 @@ export function CTASection({ onOpenPayment }: { onOpenPayment: () => void }) {
   return (
     <section
       id="colaborar"
-      className="relative bg-[#0D0F14] px-6 py-32 text-center overflow-hidden"
+      className="relative bg-slate-950 px-6 py-32 text-center overflow-hidden"
     >
       {/* Fondo de imagen con gradiente */}
        <div 
          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-60"
           style={{ backgroundImage: "url('/images/Bling_Periodista.avif')" }}
         />
-        <div className="absolute inset-0 bg-linear-to-b from-[#0D0F14] via-[#0D0F14]/60 to-[#0D0F14] pointer-events-none" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#0D0F14_100%)] opacity-40 pointer-events-none" />
+        <div className="absolute inset-0 bg-linear-to-b from-slate-950 via-slate-950/60 to-slate-950 pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#020617_100%)] opacity-40 pointer-events-none" />
 
       <div className="relative z-10 max-w-3xl mx-auto">
         <h2 className="text-white text-5xl md:text-6xl font-black leading-tight mb-6">

@@ -41,14 +41,14 @@ export function TeamModal({ member, onClose }: TeamModalProps) {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onClick={onClose}
-          className="fixed inset-0 z-100 flex items-center justify-center bg-black/90 backdrop-blur-xl p-4"
+          className="fixed inset-0 z-130 flex items-center justify-center bg-slate-950/90 backdrop-blur-xl p-4"
         >
           <motion.div
             initial={{ scale: 0.9, opacity: 0, y: 20 }}
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.9, opacity: 0, y: 20 }}
             onClick={(e) => e.stopPropagation()}
-            className="bg-[#111318] border border-white/10 w-full max-w-5xl rounded-[2.5rem] overflow-hidden shadow-2xl relative"
+            className="bg-slate-900 border border-white/10 w-full max-w-5xl rounded-[2.5rem] overflow-hidden shadow-2xl relative"
           >
             <button 
               onClick={onClose}
@@ -64,7 +64,7 @@ export function TeamModal({ member, onClose }: TeamModalProps) {
                   <img 
                     src={member.photo} 
                     alt={member.name} 
-                    className="w-full h-full object-cover rounded-full bg-[#0D0F14]"
+                    className="w-full h-full object-cover rounded-full bg-slate-950"
                   />
                 </div>
 

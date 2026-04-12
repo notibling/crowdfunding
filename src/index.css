@@ -132,16 +132,16 @@ html.light {
   --nc-surface-hover: #f1f5f9;
 }
 
-/* ——— AMOLED black mode ——— */
+/* ——— Slate dark mode (formerly AMOLED black) ——— */
 html.black {
-  --nc-bg-0-rgb: 0 0 0;
-  --nc-bg-30-rgb: 5 5 5;
-  --nc-bg-70-rgb: 10 10 10;
-  --nc-bg-100-rgb: 0 0 0;
-  --nc-surface-rgb: 8 8 8;
-  --nc-surface-hover-rgb: 16 16 16;
-  --nc-border-rgb: 255 255 255;
-  --nc-border-focus-rgb: 255 255 255;
+  --nc-bg-0-rgb: 2 6 23;
+  --nc-bg-30-rgb: 15 23 42;
+  --nc-bg-70-rgb: 30 41 59;
+  --nc-bg-100-rgb: 2 6 23;
+  --nc-surface-rgb: 15 23 42;
+  --nc-surface-hover-rgb: 30 41 59;
+  --nc-border-rgb: 51 65 85;
+  --nc-border-focus-rgb: 71 85 105;
   --nc-border-ring-rgb: 59 130 246;
   --nc-text-h1-rgb: 255 255 255;
   --nc-text-h2-rgb: 241 245 249;
@@ -154,15 +154,15 @@ html.black {
   --nc-primary-rgb: 96 165 250;
   --nc-primary-hover-rgb: 147 197 253;
 
-  /* Calculated Variables (Black Override) */
-  --nc-bg-0: #000000;
-  --nc-bg-30: #050505;
-  --nc-bg-70: #0a0a0a;
-  --nc-bg-100: #000000;
-  --nc-surface-0: #080808;
-  --nc-surface-30: #101010;
-  --nc-surface-70: #151515;
-  --nc-surface-100: #080808;
+  /* Calculated Variables (Slate Override) */
+  --nc-bg-0: #020617;
+  --nc-bg-30: #0f172a;
+  --nc-bg-70: #1e293b;
+  --nc-bg-100: #020617;
+  --nc-surface-0: #0f172a;
+  --nc-surface-30: #1e293b;
+  --nc-surface-70: #334155;
+  --nc-surface-100: #0f172a;
   --nc-text-h1: #ffffff;
   --nc-text-h2: #f1f5f9;
   --nc-text-h3: #cbd5e1;
@@ -174,8 +174,8 @@ html.black {
   --nc-brand-hover: #ffd83c;
   --nc-primary: #60a5fa;
   --nc-primary-hover: #93c5fd;
-  --nc-border: rgba(255, 255, 255, 0.1);
-  --nc-border-focus: rgba(255, 255, 255, 0.2);
+  --nc-border: rgba(148, 163, 184, 0.1);
+  --nc-border-focus: rgba(148, 163, 184, 0.2);
   --nc-border-ring: rgba(59, 130, 246, 0.25);
   --nc-placeholder: rgba(255, 255, 255, 0.3);
 
@@ -186,7 +186,7 @@ html.black {
     var(--nc-surface-70) 70%,
     var(--nc-surface-100) 100%
   );
-  --nc-surface-hover: #101010;
+  --nc-surface-hover: #1e293b;
 }
 
 /* ——— Base container (optional, for scoped sections) ——— */
