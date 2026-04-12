@@ -1,92 +1,154 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { ArrowRight } from 'lucide-react';
+
+const fadeUp = (delay: number) => ({
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.8, delay, ease: [0.22, 1, 0.36, 1] },
+});
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-6 py-32 overflow-hidden ">
-      {/* Fondo de imagen con gradiente */}
-      <motion.div 
-        initial={{ scale: 1.1, opacity: 0 }}
-        animate={{ scale: 1, opacity: 0.6 }}
-        transition={{ duration: 1.5, ease: "easeOut" }}
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat blur-xs"
-        style={{ backgroundImage: "url('/images/screenshots/BlingNews.avif')" }}
-      />
-      
-      {/* Capas de gradiente para profundidad */}
-      <div className="absolute inset-0 pointer-events-none bg-linear-to-b from-[#08090d]/20 via-[#0D0F14]/40 via-90% to-[#08090d]" >
-      </div>
+    <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-6 py-32 overflow-hidden">
 
-      <div className="relative z-10 max-w-5xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          <span className="inline-block py-1 px-3 rounded-full bg-[#FFCC00]/10 border border-[#FFCC00]/20 text-[#FFCC00] text-[10px] md:text-xs font-bold tracking-[0.3em] uppercase mb-8">
-            Programa de Crowdfunding BLING 2026
+      {/* Imagen de fondo */}
+      <motion.div
+        initial={{ scale: 1.08, opacity: 0 }}
+        animate={{ scale: 1, opacity: 0.25 }}
+        transition={{ duration: 2, ease: 'easeOut' }}
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat pointer-events-none"
+        style={{
+          backgroundImage: "url('/images/screenshots/BlingNews.avif')",
+          filter: 'blur(4px) saturate(0.6)',
+        }}
+      />
+
+      {/* Gradiente de profundidad */}
+      <div className="absolute inset-0 pointer-events-none"
+        style={{
+          background: `linear-gradient(to bottom,
+            #08090d 0%,
+            rgba(8,9,13,0.15) 30%,
+            rgba(13,15,20,0.55) 60%,
+            #08090d 100%
+          )`,
+        }}
+      />
+
+      {/* Viñeta radial */}
+      <div className="absolute inset-0 pointer-events-none"
+        style={{
+          background: 'radial-gradient(ellipse 80% 80% at 50% 50%, transparent 40%, rgba(8,9,13,0.7) 100%)',
+        }}
+      />
+
+      {/* Decoraciones de esquina */}
+      <div className="absolute top-12 left-12 w-14 h-14 opacity-15 border-t border-l border-[#FFCC00]" />
+      <div className="absolute bottom-20 right-12 w-14 h-14 opacity-15 border-b border-r border-[#FFCC00]" />
+
+      <div className="relative z-10 max-w-4xl mx-auto">
+
+        {/* Pill */}
+        <motion.div {...fadeUp(0.3)}>
+          <span className="inline-flex items-center gap-2 py-1.5 px-4 rounded-full bg-[#FFCC00]/8 border border-[#FFCC00]/25 text-[#FFCC00] text-[10px] font-semibold tracking-[0.3em] uppercase mb-10">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#FFCC00] animate-pulse" />
+            Crowdfunding BLING · 2026
           </span>
         </motion.div>
 
-        <motion.h1 
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-white text-4xl md:text-7xl text-shadow-2xs font-semibold leading-[0.95] tracking-tighter mb-8"
+        {/* Titular */}
+        <motion.h1
+          {...fadeUp(0.5)}
+          className="font-serif text-white leading-[0.95] tracking-tight mb-4"
+          style={{ fontSize: 'clamp(2.8rem, 8vw, 6.5rem)', fontWeight: 900 }}
         >
-          LA INFORMACIÓN LIBRE<br />
-          <span className="text-transparent bg-clip-text bg-linear-to-r from-[#FFCC00] via-[#FFE066] to-[#FFCC00] bg-size-[200%_auto] animate-gradient-x">
-            NO SE FINANCIA SOLA.
-          </span>
+          La información libre
+          <br />
+          <em
+            className="not-italic"
+            style={{
+              background: 'linear-gradient(90deg, #fff5b7 0%, #ffdc52 35%, #FFCC00 70%, #e6a800 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+              fontStyle: 'italic',
+            }}
+          >
+            no se financia sola.
+          </em>
         </motion.h1>
 
-       <motion.p 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-slate-200 text-lg text-shadow-2xs md:text-2xl font-medium max-w-2xl mx-auto leading-relaxed mb-12"
+        {/* Separador */}
+        <motion.div
+          initial={{ opacity: 0 }} animate={{ opacity: 1 }}
+          transition={{ delay: 1, duration: 0.6 }}
+          className="w-14 h-px mx-auto my-8"
+          style={{ background: 'linear-gradient(90deg, transparent, rgba(255,204,0,0.5), transparent)' }}
+        />
+
+        {/* Cuerpo */}
+        <motion.p
+          {...fadeUp(0.8)}
+          className="text-white/70 font-light leading-[1.9] max-w-xl mx-auto mb-0"
+          style={{ fontSize: 'clamp(1rem, 2.5vw, 1.15rem)' }}
         >
-          <span className=" px-2 py-0.5">
-            Hay periodistas con historias importantes que contar
-            <br/>y sin un lugar propio donde contarlas.
-            <br/>Eso es lo que llevamos tres años tratando de cambiar.
-          </span>
-          <br/><br/>
-          <span className=" px-2  text-transparent bg-clip-text bg-linear-to-r from-[#FFCC00] via-[#ffe53a] to-[#FFCC00] bg-size-[150%_auto] animate-gradient-x    text-2xl text-shadow-2xs md:text-2xl">
-            Llegó el momento del primer año.
-          </span>
+          Hay periodistas con historias importantes que contar,
+          <br />y sin un lugar propio donde contarlas.
+          <br />Eso es lo que llevamos tres años tratando de cambiar.
         </motion.p>
 
+        {/* Línea de remate */}
+        <motion.p
+          {...fadeUp(1.1)}
+          className="font-medium mt-6 mb-12"
+          style={{
+            fontSize: 'clamp(1rem, 2.5vw, 1.2rem)',
+            background: 'linear-gradient(90deg, #86efac 0%, #4ade80 50%, #bbf7d0 100%)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            backgroundClip: 'text',
+          }}
+        >
+          → Llegó el momento del primer año.
+        </motion.p>
+
+        {/* CTAs */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-5"
+          {...fadeUp(1.3)}
+          className="flex items-center justify-center gap-8 flex-wrap"
         >
           <a
             href="#colaborar"
-            className="group relative inline-flex items-center justify-center bg-[#FFCC00] text-[#0D0F14] font-black text-sm tracking-widest uppercase px-12 py-5 overflow-hidden transition-all duration-300 hover:pr-14"
+            className="inline-flex items-center gap-2.5 bg-[#FFCC00] text-[#08090d] font-semibold text-xs tracking-[0.2em] uppercase px-9 py-4 transition-all duration-300 hover:bg-[#ffe033] hover:translate-y-[-1px] group"
+            style={{
+              clipPath: 'polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px))',
+            }}
           >
-            <span className="relative z-10">Quiero colaborar</span>
+            Quiero colaborar
+            <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" />
           </a>
-          
+
           <a
             href="#historia"
-            className="text-white/60 hover:text-[#FFCC00] font-bold text-sm tracking-widest uppercase py-4 transition-colors duration-200"
+            className="text-white/40 hover:text-[#FFCC00] font-medium text-[11px] tracking-[0.2em] uppercase transition-colors duration-200 border-b border-white/15 hover:border-[#FFCC00]/40 pb-0.5"
           >
             Nuestra historia
           </a>
         </motion.div>
       </div>
 
-      {/* Indicador de scroll */}
-      <motion.div 
+      {/* Scroll indicator */}
+      <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1.2, duration: 1 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2"
+        transition={{ delay: 1.8, duration: 1 }}
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5"
       >
-        <div className="w-px h-16 bg-linear-to-b from-[#FFCC00] to-transparent" />
+        <div className="w-px h-12 bg-gradient-to-b from-[#FFCC00] to-transparent animate-pulse" />
+        <span className="text-[9px] font-medium tracking-[0.25em] uppercase text-[#FFCC00]/40">
+          scroll
+        </span>
       </motion.div>
     </section>
   );

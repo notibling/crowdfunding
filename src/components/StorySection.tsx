@@ -5,11 +5,11 @@ export function StorySection() {
     <section id="historia" className="bg-[#08090d] relative px-6 py-28 overflow-hidden">
       <motion.div 
         initial={{ scale: 1.1, opacity: 0 }}
-        whileInView={{ scale: 1, opacity: 0.2 }}
+        whileInView={{ scale: 1, opacity: 0.25 }}
         viewport={{ once: true }}
         transition={{ duration: 1.5, ease: "easeOut" }}
         className="absolute inset-0 bg-cover bg-center bg-no-repeat blur-sm pointer-events-none"
-        style={{ backgroundImage: "url('/images/screenshots/BlingNews.avif')" }}
+        style={{ backgroundImage: "url('/images/Bling_Forge.avif')" }}
       />
       
       {/* Overlay para asegurar legibilidad */}
