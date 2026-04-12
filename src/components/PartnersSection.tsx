@@ -100,6 +100,33 @@ export function PartnersSection() {
             </motion.div>
           ))}
         </div>
+
+        {/* Call to Action for new partners */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mt-16 text-center max-w-2xl mx-auto"
+        >
+          <div className="inline-block p-[1px] rounded-2xl bg-linear-to-r from-white/5 via-[#ffcc00]/20 to-white/5">
+            <div className="bg-[#0D0F14]/80 backdrop-blur-md rounded-2xl px-8 py-10 border border-white/5">
+              <h4 className="text-white text-xl font-black uppercase tracking-tighter mb-4">
+                ¿Querés que tu emprendimiento aparezca acá?
+              </h4>
+              <p className="text-slate-400 text-sm leading-relaxed mb-8">
+                Aprovechá la visibilidad de nuestra plataforma. Envianos tu <strong>logo</strong> y tu <strong>sitio web o red social</strong> a nuestro email y sumate a nuestra red de colaboración.
+              </p>
+              <a
+                href="mailto:hello@bling.uy"
+                className="inline-flex items-center gap-3 bg-white text-[#0D0F14] font-black text-[10px] tracking-[0.2em] uppercase px-10 py-5 rounded-xl hover:bg-[#ffcc00] transition-all duration-300 shadow-xl shadow-black/50 group"
+              >
+                <span>hello@bling.uy</span>
+                <span className="group-hover:translate-x-1 transition-transform">→</span>
+              </a>
+            </div>
+          </div>
+        </motion.div>
+      </div>
       </div>
 
       <ConfirmationModal
