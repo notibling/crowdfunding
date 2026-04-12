@@ -50,8 +50,7 @@ export function PaymentModal({ isOpen, onClose }: { isOpen: boolean, onClose: ()
                   <PayPalScriptProvider options={{ 
                     clientId: paypalClientId,
                     currency: "USD",
-                    intent: "capture",
-                    "data-sdk-integration-source": "react-paypal-js"
+                    intent: "capture"
                   }}>
                     <div className="w-full relative z-10">
                       <PayPalButtons 
@@ -61,6 +60,10 @@ export function PaymentModal({ isOpen, onClose }: { isOpen: boolean, onClose: ()
                           shape: "rect",
                           label: "donate",
                           height: 48
+                        }}
+                        onError={(err) => {
+                          console.error("PayPal Error:", err);
+                          alert("Hubo un error al cargar PayPal. Por favor, intenta de nuevo.");
                         }}
                         createOrder={(data, actions) => {
                           return actions.order.create({
