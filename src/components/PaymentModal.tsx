@@ -48,9 +48,18 @@ export function PaymentModal({ isOpen, onClose }: { isOpen: boolean, onClose: ()
                 
                 <div className="min-h-[200px] flex flex-col items-center justify-center bg-white rounded-2xl p-6 transition-all relative">
                   {!paypalClientId ? (
-                    <div className="text-center p-4">
-                      <p className="text-red-500 text-xs font-bold uppercase mb-2">Error de Configuración</p>
-                      <p className="text-slate-600 text-[10px]">El Client ID de PayPal no está configurado correctamente en producción.</p>
+                    <div className="text-center p-6 bg-red-500/5 rounded-xl border border-red-500/20">
+                      <p className="text-red-500 text-xs font-black uppercase mb-3 tracking-widest">Error de Configuración</p>
+                      <p className="text-slate-400 text-[11px] leading-relaxed mb-4">
+                        La credencial <code className="bg-red-500/10 px-1 rounded text-red-400">VITE_PAYPAL_CLIENT_ID</code> no se encuentra en el entorno de producción.
+                      </p>
+                      <div className="text-left bg-black/20 p-3 rounded-lg text-[9px] text-slate-500 font-mono">
+                        <p className="mb-1">Solución:</p>
+                        <p>1. Ir a Vercel Dashboard</p>
+                        <p>2. Settings -> Environment Variables</p>
+                        <p>3. Añadir VITE_PAYPAL_CLIENT_ID</p>
+                        <p>4. Hacer Redeploy</p>
+                      </div>
                     </div>
                   ) : (
                     <PayPalScriptProvider options={{ 
