@@ -56,7 +56,7 @@ export function PaymentModal({ isOpen, onClose }: { isOpen: boolean, onClose: ()
                       <div className="text-left bg-black/20 p-3 rounded-lg text-[9px] text-slate-500 font-mono">
                         <p className="mb-1">Solución:</p>
                         <p>1. Ir a Vercel Dashboard</p>
-                        <p>2. Settings -> Environment Variables</p>
+                        <p>2. Settings &rarr; Environment Variables</p>
                         <p>3. Añadir VITE_PAYPAL_CLIENT_ID</p>
                         <p>4. Hacer Redeploy</p>
                       </div>
