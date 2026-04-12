@@ -80,9 +80,9 @@ export function PartnersSection() {
               transition={{ delay: index * 0.05 }}
               whileHover={{ y: -5 }}
               onClick={() => handlePartnerClick(partner.name, partner.link)}
-              className="group cursor-pointer bg-zinc-900/[0.9] border border-white/5 rounded-2xl p-4 flex flex-col items-center justify-center transition-all duration-300 hover:bg-white/[0.1] hover:border-[#0070BA]/30 hover:shadow-[0_0_30px_rgba(0,112,186,0.1)] relative overflow-hidden"
+              className="group cursor-pointer bg-zinc-900/90 border border-white/5 rounded-2xl p-4 flex flex-col items-center justify-center transition-all duration-300 hover:bg-white/10 hover:border-[#0070BA]/30 hover:shadow-[0_0_30px_rgba(0,112,186,0.1)] relative overflow-hidden"
             >
-              <div className=" !aspect-video rounded-xl object-contain overflow-hidden  w-full mb-4 flex items-center justify-center grayscale group-hover:grayscale-0 transition-all duration-500 opacity-50 group-hover:opacity-100">
+              <div className="aspect-video! rounded-xl object-contain overflow-hidden  w-full mb-4 flex items-center justify-center grayscale group-hover:grayscale-0 transition-all duration-500 opacity-50 group-hover:opacity-100">
                 <img 
                   src={partner.logo} 
                   alt={partner.name} 
@@ -108,7 +108,7 @@ export function PartnersSection() {
           viewport={{ once: true }}
           className="mt-16 text-center max-w-2xl mx-auto"
         >
-          <div className="inline-block p-[1px] rounded-2xl bg-linear-to-r from-white/5 via-[#ffcc00]/20 to-white/5">
+          <div className="inline-block p-px rounded-2xl bg-linear-to-r from-white/5 via-[#ffcc00]/20 to-white/5">
             <div className="bg-[#0D0F14]/80 backdrop-blur-md rounded-2xl px-8 py-10 border border-white/5">
               <h4 className="text-white text-xl font-black uppercase tracking-tighter mb-4">
                 ¿Querés que tu emprendimiento aparezca acá?
@@ -126,7 +126,6 @@ export function PartnersSection() {
             </div>
           </div>
         </motion.div>
-      </div>
       </div>
 
       <ConfirmationModal
