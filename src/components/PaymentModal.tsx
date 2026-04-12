@@ -46,53 +46,59 @@ export function PaymentModal({ isOpen, onClose }: { isOpen: boolean, onClose: ()
                   Podés colaborar de forma segura utilizando tu cuenta de <strong>PayPal</strong> o tarjeta de crédito/débito:
                 </p>
                 
-                <div className="min-h-[150px] flex flex-col items-center justify-center bg-white rounded-2xl p-6 transition-all relative">
-                  <PayPalScriptProvider options={{ 
-                    clientId: paypalClientId,
-                    currency: "USD",
-                    intent: "capture"
-                  }}>
-                    <div className="w-full relative z-10">
-                      <PayPalButtons 
-                        style={{ 
-                          layout: "vertical",
-                          color: "gold",
-                          shape: "rect",
-                          label: "donate",
-                          height: 48
-                        }}
-                        onError={(err) => {
-                          console.error("PayPal Error:", err);
-                          alert("Hubo un error al cargar PayPal. Por favor, intenta de nuevo.");
-                        }}
-                        createOrder={(data, actions) => {
-                          return actions.order.create({
-                            intent: "CAPTURE",
-                            purchase_units: [
-                              {
-                                description: `Donación para ${paypalAppName}`,
-                                amount: {
-                                  currency_code: "USD",
-                                  value: "10.00",
-                                },
-                              },
-                            ],
-                            application_context: {
-                              shipping_preference: "NO_SHIPPING",
-                              user_action: "PAY_NOW"
-                            }
-                          } as any);
-                        }}
-                        onApprove={async (data, actions) => {
-                          if (actions.order) {
-                            const details = await actions.order.capture();
-                            alert(`Gracias por tu colaboración, ${details.payer.name?.given_name}!`);
-                            onClose();
-                          }
-                        }}
-                      />
+                <div className="min-h-[200px] flex flex-col items-center justify-center bg-white rounded-2xl p-6 transition-all relative">
+                  {!paypalClientId ? (
+                    <div className="text-center p-4">
+                      <p className="text-red-500 text-xs font-bold uppercase mb-2">Error de Configuración</p>
+                      <p className="text-slate-600 text-[10px]">El Client ID de PayPal no está configurado correctamente en producción.</p>
                     </div>
-                  </PayPalScriptProvider>
+                  ) : (
+                    <PayPalScriptProvider options={{ 
+                      clientId: paypalClientId,
+                      currency: "USD",
+                      intent: "capture"
+                    }}>
+                      <div className="w-full relative z-10">
+                        <PayPalButtons 
+                          style={{ 
+                            layout: "vertical",
+                            color: "gold",
+                            shape: "rect",
+                            label: "donate",
+                            height: 48
+                          }}
+                          onError={(err) => {
+                            console.error("PayPal Error:", err);
+                          }}
+                          createOrder={(data, actions) => {
+                            return actions.order.create({
+                              intent: "CAPTURE",
+                              purchase_units: [
+                                {
+                                  description: `Donación para ${paypalAppName}`,
+                                  amount: {
+                                    currency_code: "USD",
+                                    value: "10.00",
+                                  },
+                                },
+                              ],
+                              application_context: {
+                                shipping_preference: "NO_SHIPPING",
+                                user_action: "PAY_NOW"
+                              }
+                            } as any);
+                          }}
+                          onApprove={async (data, actions) => {
+                            if (actions.order) {
+                              const details = await actions.order.capture();
+                              alert(`Gracias por tu colaboración, ${details.payer.name?.given_name}!`);
+                              onClose();
+                            }
+                          }}
+                        />
+                      </div>
+                    </PayPalScriptProvider>
+                  )}
                 </div>
               </div>
 

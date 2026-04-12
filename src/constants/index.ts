@@ -1,6 +1,10 @@
 export const paypalClientId = import.meta.env.VITE_PAYPAL_CLIENT_ID || "";
 export const paypalAppName = import.meta.env.VITE_PAYPAL_DISPLAY_APP_NAME || "Bling Crowdfunding";
 
+if (import.meta.env.PROD && !paypalClientId) {
+  console.warn("PayPal Client ID is missing in production environment!");
+}
+
 export const screenshots = [
   {
     src: "/images/screenshots/Login.avif",
