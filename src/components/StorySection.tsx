@@ -1,9 +1,21 @@
 import React from 'react';
-
+import { motion } from 'framer-motion';
 export function StorySection() {
   return (
-    <section id="historia" className="bg-linear-to-b from-[#08090d] via-[#0D0F14] to-[#08090d] px-6 py-28">
-      <div className="max-w-3xl mx-auto">
+    <section id="historia" className="bg-[#08090d] relative px-6 py-28 overflow-hidden">
+      <motion.div 
+        initial={{ scale: 1.1, opacity: 0 }}
+        whileInView={{ scale: 1, opacity: 0.2 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1.5, ease: "easeOut" }}
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat blur-sm pointer-events-none"
+        style={{ backgroundImage: "url('/images/screenshots/BlingNews.avif')" }}
+      />
+      
+      {/* Overlay para asegurar legibilidad */}
+      <div className="absolute inset-0 bg-linear-to-b from-[#08090d] via-transparent to-[#08090d] pointer-events-none" />
+
+      <div className="max-w-3xl mx-auto relative z-10">
         <p className="text-[#FFCC00] text-xs font-semibold tracking-[0.3em] uppercase mb-4">
           Tres años de trabajo
         </p>

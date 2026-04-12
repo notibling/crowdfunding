@@ -9,8 +9,8 @@ export function HeroSection() {
         initial={{ scale: 1.1, opacity: 0 }}
         animate={{ scale: 1, opacity: 0.6 }}
         transition={{ duration: 1.5, ease: "easeOut" }}
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url('/images/bling_light.avif')" }}
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat blur-xs"
+        style={{ backgroundImage: "url('/images/screenshots/BlingNews.avif')" }}
       />
       
       {/* Capas de gradiente para profundidad */}
