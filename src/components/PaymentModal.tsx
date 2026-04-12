@@ -48,7 +48,7 @@ export function PaymentModal({ isOpen, onClose }: { isOpen: boolean, onClose: ()
                 
                 <div className="min-h-[150px] flex flex-col items-center justify-center bg-white rounded-2xl p-6 transition-all relative">
                   <PayPalScriptProvider options={{ 
-                    "client-id": paypalClientId,
+                    clientId: paypalClientId,
                     currency: "USD",
                     intent: "capture",
                     "data-sdk-integration-source": "react-paypal-js"
