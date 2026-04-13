@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { SectionBackground } from './SectionBackground';
 
 type Status = 'completed' | 'in-progress' | 'soon' | 'pending';
 
@@ -71,10 +72,10 @@ const steps = [
 ];
 
 const statusConfig: Record<Status, { label: string; dotClass: string; badgeClass: string }> = {
-  completed:   { label: 'Completado',  dotClass: 'bg-[#FFCC00]',                                         badgeClass: 'bg-green-950 text-green-400' },
-  'in-progress': { label: 'En curso',  dotClass: 'bg-[#FFCC00] ring-4 ring-[#FFCC00]/20',                badgeClass: 'bg-[#FFCC00]/10 text-[#a07c00]' },
-  soon:        { label: 'Próximo',     dotClass: 'bg-slate-950 border-2 border-slate-600',               badgeClass: 'bg-slate-800 text-slate-400' },
-  pending:     { label: 'Planificado', dotClass: 'bg-slate-900 border border-slate-800',                  badgeClass: 'bg-slate-900 text-slate-600' },
+  completed:   { label: 'Completado',  dotClass: 'bg-[#FFCC00]',                                         badgeClass: 'bg-green-100 dark:bg-green-950 text-green-700 dark:text-green-400' },
+  'in-progress': { label: 'En curso',  dotClass: 'bg-[#FFCC00] ring-4 ring-[#FFCC00]/20',                badgeClass: 'bg-[#FFCC00]/10 text-[#a07c00] dark:text-[#FFCC00]' },
+  soon:        { label: 'Próximo',     dotClass: 'bg-white dark:bg-slate-950 border-2 border-slate-400 dark:border-slate-600',               badgeClass: 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400' },
+  pending:     { label: 'Planificado', dotClass: 'bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-800',                  badgeClass: 'bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400' },
 };
 
 const productTags = ['BlingNews', 'BlingShop', 'BlingPay', 'BlingAds', 'BlingPages',
@@ -82,29 +83,24 @@ const productTags = ['BlingNews', 'BlingShop', 'BlingPay', 'BlingAds', 'BlingPag
 
 export function RoadmapSection() {
   return (
-    <section className="relative px-6 py-28 bg-slate-950 overflow-hidden">
-         <motion.div
-              initial={{ scale: 1.08, opacity: 0 }}
-              animate={{ scale: 1, opacity: 0.25 }}
-              transition={{ duration: 2, ease: 'easeOut' }}
-              className="absolute inset-0 bg-cover bg-center bg-no-repeat pointer-events-none"
-              style={{
-                backgroundImage: "url('/images/Bling_Road.avif')",
-                filter: 'blur(4px) saturate(0.6)',
-              }}
-            />
-               {/* Overlay para asegurar legibilidad */}
-      <div className="absolute inset-0 bg-linear-to-b from-[#020617]  via-transparent to-[#020617] pointer-events-none" />
+    <section className="relative px-6 py-28 bg-white dark:bg-slate-950 overflow-hidden">
+      <SectionBackground 
+        url="/images/Bling_Road.avif" 
+        animated={true} 
+        blur={true} 
+        opacity="medium" 
+        fadeDirection="vertical" 
+      />
 
       <div className="max-w-3xl mx-auto relative z-10">
         <div className="mb-14">
           <p className="text-[#FFCC00] text-xs font-semibold tracking-[0.3em] uppercase mb-4">
             El camino recorrido y el que viene
           </p>
-          <h2 className="text-white text-4xl md:text-5xl font-black leading-tight mb-4">
+          <h2 className="text-slate-900 dark:text-white text-4xl md:text-5xl font-black leading-tight mb-4">
             Hoja de ruta
           </h2>
-          <p className="text-slate-400 text-lg max-w-xl font-medium">
+          <p className="text-slate-600 dark:text-slate-400 text-lg max-w-xl font-medium">
             Tres años construyendo sin inversión externa. Esto es lo que hicimos y lo que viene.
           </p>
         </div>
@@ -128,7 +124,7 @@ export function RoadmapSection() {
                 <div className="flex flex-col items-center w-10 flex-shrink-0">
                   <div className={`w-3.5 h-3.5 rounded-full mt-1 flex-shrink-0 relative z-10 ${cfg.dotClass}`} />
                   {!isLast && (
-                    <div className={`w-px flex-grow my-1 ${lineDone ? 'bg-[#FFCC00]/30' : 'bg-white/10'}`} />
+                    <div className={`w-px flex-grow my-1 ${lineDone ? 'bg-[#FFCC00]/30' : 'bg-slate-200 dark:bg-white/10'}`} />
                   )}
                 </div>
 
@@ -140,10 +136,10 @@ export function RoadmapSection() {
                   <p className={`text-[10px] font-bold uppercase tracking-widest mb-1 ${step.status === 'pending' || step.status === 'soon' ? 'text-slate-600' : 'text-[#FFCC00]'}`}>
                     {step.date}
                   </p>
-                  <h3 className="text-white font-bold text-lg mb-2 tracking-tight">
+                  <h3 className="text-slate-900 dark:text-white font-bold text-lg mb-2 tracking-tight">
                     {step.title}
                   </h3>
-                  <p className="text-slate-400 text-sm leading-relaxed mb-3">
+                  <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-3">
                     {step.description}
                   </p>
                   <div className="flex flex-wrap gap-2">
@@ -152,8 +148,8 @@ export function RoadmapSection() {
                         key={tag}
                         className={`text-[11px] px-2.5 py-0.5 rounded-full border ${
                           productTags.includes(tag)
-                            ? 'border-[#FFCC00]/30 text-[#a07c00] bg-[#FFCC00]/08'
-                            : 'border-white/10 text-slate-500 bg-slate-900'
+                            ? 'border-[#FFCC00]/30 text-[#a07c00] dark:text-[#FFCC00] bg-[#FFCC00]/10'
+                            : 'border-slate-300 dark:border-white/10 text-slate-500 dark:text-slate-500 bg-slate-50 dark:bg-slate-900'
                         }`}
                       >
                         {tag}

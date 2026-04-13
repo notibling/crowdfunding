@@ -18,11 +18,12 @@ const ClosingSection = lazy(() => import('./components/ClosingSection').then(m =
 const PaymentModal = lazy(() => import('./components/PaymentModal').then(m => ({ default: m.PaymentModal })));
 const ScrollToTop = lazy(() => import('./components/ScrollToTop').then(m => ({ default: m.ScrollToTop })));
 const FloatingDonateBar = lazy(() => import('./components/FloatingDonateBar').then(m => ({ default: m.FloatingDonateBar })));
+const ThemeToggle = lazy(() => import('./components/ThemeToggle').then(m => ({ default: m.ThemeToggle })));
 import { ErrorBoundary } from './components/ErrorBoundary';
 
 // Loading component
 const SectionLoader = () => (
-  <div className="w-full h-64 flex items-center justify-center bg-slate-900">
+  <div className="w-full h-64 flex items-center justify-center bg-slate-50 dark:bg-slate-900">
     <div className="w-8 h-8 border-2 border-[#FFCC00]/20 border-t-[#FFCC00] rounded-full animate-spin" />
   </div>
 );
@@ -32,8 +33,9 @@ export default function App() {
 
   return (
     <ErrorBoundary>
-      <main className="font-montserrat bg-linear-to-t from-slate-950 via-slate-900 to-slate-950">
+      <main className="font-montserrat bg-gradient-to-t from-white dark:from-slate-950 via-slate-50 dark:via-slate-900 to-white dark:to-slate-950">
         <Suspense fallback={<SectionLoader />}>
+          <ThemeToggle />
           <HeroSection />
           <StorySection />
           <WhatIsBlingSection />

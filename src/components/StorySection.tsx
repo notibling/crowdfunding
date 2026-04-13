@@ -1,35 +1,33 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { SectionBackground } from './SectionBackground';
+
 export function StorySection() {
   return (
-    <section id="historia" className="bg-[#020617]  items-center justify-center flex text-shadow-xl min-h-screen relative px-6 py-28 overflow-hidden">
-      <motion.div 
-        initial={{ scale: 1.1, opacity: 0 }}
-        whileInView={{ scale: 1, opacity: 0.8 }}
-        viewport={{ once: true }}
-        transition={{ duration: 1.5, ease: "easeOut" }}
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat blur-xs pointer-events-none"
-        style={{ backgroundImage: "url('/images/Bling_Study.avif')" }}
+    <section id="historia" className="bg-white dark:bg-[#020617] items-center justify-center flex text-shadow-xl min-h-screen relative px-6 py-28 overflow-hidden">
+      <SectionBackground 
+        url="/images/Bling_Study.avif" 
+        animated={true} 
+        blur={true} 
+        opacity="high" 
+        fadeDirection="vertical" 
       />
-      
-      {/* Overlay para asegurar legibilidad */}
-      <div className="absolute inset-0 bg-linear-to-b from-[#020617]  via-transparent to-[#020617] pointer-events-none" />
 
-      <div className="max-w-3xl mx-auto relative z-10 bg-slate-900/50 border-2 border-slate-800 backdrop-blur-lg p-12 rounded-2xl shadow-lg">
+      <div className="max-w-3xl mx-auto relative z-10 bg-slate-50 dark:bg-slate-900/50 border-2 border-slate-200 dark:border-slate-800 backdrop-blur-lg p-12 rounded-2xl shadow-lg">
         <p className="text-[#FFCC00] text-xs font-semibold tracking-[0.3em] uppercase mb-4">
           Tres años de trabajo
         </p>
-        <h2 className="text-white text-4xl md:text-5xl font-black leading-tight mb-10">
+        <h2 className="text-slate-900 dark:text-white text-4xl md:text-5xl font-black leading-tight mb-10">
           Todo empezó con una pregunta incómoda.
         </h2>
-        <div className="space-y-6 text-slate-300 text-lg leading-relaxed font-medium">
+        <div className="space-y-6 text-slate-700 dark:text-slate-300 text-lg leading-relaxed font-medium">
           <p>
             ¿Por qué los mejores periodistas de nuestra región terminan trabajando para plataformas que no les pertenecen, bajo algoritmos que no entienden y con una libertad que tiene fecha de vencimiento?
           </p>
           <p>
             Empezamos a construir una respuesta. Sin inversión externa, sin créditos, sin fondos públicos. Solo tiempo, convicción y trabajo.
           </p>
-          <p className="text-white font-semibold text-xl border-l-2 border-[#FFCC00] pl-5">
+          <p className="text-slate-900 dark:text-white font-semibold text-xl border-l-2 border-[#FFCC00] pl-5">
             Más de tres años después, <span className="text-[#FFCC00]">Bling está casi listo.</span> Y llegamos hasta aquí sin que nadie nos deba nada &#8278; ni nosotros a nadie.
           </p>
           <p>

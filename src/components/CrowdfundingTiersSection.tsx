@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Star, Shield, Gem, Hammer } from 'lucide-react';
+import { SectionBackground } from './SectionBackground';
 
 const tiers = [
   {
@@ -60,15 +61,13 @@ const tiers = [
 
 export function CrowdfundingTiersSection({ onOpenPayment }: { onOpenPayment: () => void }) {
   return (
-    <section className="relative px-6 py-24 bg-slate-900 overflow-hidden">
-      <motion.div
-        initial={{ scale: 1.08, opacity: 0 }}
-        animate={{ scale: 1, opacity: 0.2 }}
-        transition={{ duration: 2, ease: 'easeOut' }}
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat pointer-events-none"
-        style={{ backgroundImage: "url('/images/Bling_Colab.avif')" }}
+    <section className="relative px-6 py-24 bg-slate-50 dark:bg-slate-900 overflow-hidden">
+      <SectionBackground 
+        url="/images/Bling_Colab.avif" 
+        animated={true} 
+        opacity="low" 
+        fadeDirection="vertical" 
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-transparent to-slate-950 pointer-events-none" />
 
       <div className="max-w-6xl mx-auto relative z-10">
 
@@ -76,10 +75,10 @@ export function CrowdfundingTiersSection({ onOpenPayment }: { onOpenPayment: () 
           <p className="text-[#FFCC00] text-xs font-semibold tracking-[0.3em] uppercase mb-3">
             Elegí tu impacto
           </p>
-          <h2 className="text-white text-4xl md:text-5xl font-black leading-tight mb-3">
+          <h2 className="text-slate-900 dark:text-white text-4xl md:text-5xl font-black leading-tight mb-3">
             Niveles de colaboración
           </h2>
-          <p className="text-slate-400 text-base max-w-lg mx-auto">
+          <p className="text-slate-600 dark:text-slate-400 text-base max-w-lg mx-auto">
             Cada aporte nos acerca un paso más a un periodismo libre de condiciones.
           </p>
         </div>
@@ -96,8 +95,8 @@ export function CrowdfundingTiersSection({ onOpenPayment }: { onOpenPayment: () 
                 transition={{ delay: index * 0.08 }}
                 className={`relative flex flex-col p-6 rounded-2xl border transition-all duration-300 hover:-translate-y-1 ${
                   tier.popular
-                    ? 'bg-slate-800 border-[#FFCC00]'
-                    : 'bg-slate-950 border-white/5 hover:border-white/10'
+                    ? 'bg-slate-100 dark:bg-slate-800 border-[#FFCC00]'
+                    : 'bg-white dark:bg-slate-950 border-slate-200 dark:border-white/5 hover:border-slate-300 dark:border-white/10'
                 }`}
               >
                 {tier.popular && (
@@ -111,18 +110,18 @@ export function CrowdfundingTiersSection({ onOpenPayment }: { onOpenPayment: () 
                   <div className="w-9 h-9 rounded-xl bg-[#FFCC00]/10 flex items-center justify-center mb-4">
                     <Icon className="w-4 h-4 text-[#FFCC00]" />
                   </div>
-                  <h3 className="text-white text-lg font-black tracking-tight mb-1">{tier.name}</h3>
+                  <h3 className="text-slate-900 dark:text-white text-lg font-black tracking-tight mb-1">{tier.name}</h3>
                   <div className="flex items-baseline gap-1 mb-2">
-                    <span className="text-white text-3xl font-black">{tier.price}</span>
-                    <span className="text-slate-500 text-xs font-bold uppercase tracking-widest">USD</span>
+                    <span className="text-slate-900 dark:text-white text-3xl font-black">{tier.price}</span>
+                    <span className="text-slate-500 dark:text-slate-500 text-xs font-bold uppercase tracking-widest">USD</span>
                   </div>
-                  <p className="text-slate-500 text-xs leading-relaxed">{tier.description}</p>
+                  <p className="text-slate-500 dark:text-slate-500 text-xs leading-relaxed">{tier.description}</p>
                 </div>
 
                 {/* Benefits */}
                 <ul className="space-y-2.5 mb-6 flex-grow">
                   {tier.benefits.map((benefit, i) => (
-                    <li key={i} className="flex items-start gap-2 text-slate-300 text-xs">
+                    <li key={i} className="flex items-start gap-2 text-slate-700 dark:text-slate-300 text-xs">
                       <span className="mt-0.5 w-3.5 h-3.5 flex-shrink-0 text-[#FFCC00]">
                         <svg viewBox="0 0 14 14" fill="none">
                           <path d="M2.5 7.5l3 3 6-6" stroke="#FFCC00" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
@@ -138,7 +137,7 @@ export function CrowdfundingTiersSection({ onOpenPayment }: { onOpenPayment: () 
                   className={`w-full py-3 rounded-xl text-xs font-black tracking-widest uppercase transition-all duration-200 ${
                     tier.popular
                       ? 'bg-[#FFCC00] text-slate-950 hover:bg-white'
-                      : 'bg-white/5 text-white border border-white/10 hover:bg-white hover:text-slate-950'
+                      : 'bg-slate-100 dark:bg-white/5 text-slate-900 dark:text-white border border-slate-300 dark:border-white/10 hover:bg-white hover:text-slate-950'
                   }`}
                 >
                   Colaborar ahora

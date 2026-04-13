@@ -29,17 +29,17 @@ export function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section className="relative px-6 py-28 bg-slate-950 overflow-hidden">
+    <section className="relative px-6 py-28 bg-white dark:bg-slate-950 overflow-hidden">
       <div className="max-w-4xl mx-auto relative z-10">
         <div className="text-center mb-16">
           <p className="text-[#FFCC00] text-xs font-semibold tracking-[0.3em] uppercase mb-4 flex items-center justify-center gap-2">
             <HelpCircle size={16} />
             Despejá tus dudas
           </p>
-          <h2 className="text-white text-4xl md:text-5xl font-black leading-tight mb-4">
+          <h2 className="text-slate-900 dark:text-white text-4xl md:text-5xl font-black leading-tight mb-4">
             Preguntas Frecuentes
           </h2>
-          <p className="text-slate-400 text-lg max-w-xl mx-auto">
+          <p className="text-slate-600 dark:text-slate-400 text-lg max-w-xl mx-auto">
             Todo lo que necesitás saber antes de sumarte a la red de Bling.
           </p>
         </div>
@@ -54,15 +54,15 @@ export function FAQSection() {
               transition={{ delay: index * 0.05 }}
               className={`rounded-2xl border transition-all duration-300 ${
                 openIndex === index 
-                  ? 'bg-slate-900 border-[#FFCC00]/30' 
-                  : 'bg-slate-900/50 border-white/5 hover:border-white/10'
+                  ? 'bg-slate-50 dark:bg-slate-900 border-[#FFCC00]/30' 
+                  : 'bg-slate-50 dark:bg-slate-900/50 border-slate-200 dark:border-white/5 hover:border-slate-300 dark:border-white/10'
               }`}
             >
               <button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
                 className="w-full px-8 py-6 flex items-center justify-between text-left gap-4"
               >
-                <span className="text-white font-bold text-lg leading-tight">{faq.question}</span>
+                <span className="text-slate-900 dark:text-white font-bold text-lg leading-tight">{faq.question}</span>
                 <ChevronDown 
                   className={`text-[#FFCC00] shrink-0 transition-transform duration-300 ${
                     openIndex === index ? 'rotate-180' : ''
@@ -81,8 +81,8 @@ export function FAQSection() {
                     className="overflow-hidden"
                   >
                     <div className="px-8 pb-6 pt-2">
-                      <div className="h-px bg-white/5 mb-6" />
-                      <p className="text-slate-400 leading-relaxed font-medium">
+                      <div className="h-px bg-slate-100 dark:bg-white/5 mb-6" />
+                      <p className="text-slate-600 dark:text-slate-400 leading-relaxed font-medium">
                         {faq.answer}
                       </p>
                     </div>
@@ -93,14 +93,14 @@ export function FAQSection() {
           ))}
         </div>
 
-        <div className="mt-16 text-center p-10 rounded-3xl border border-white/5 bg-slate-900/30 backdrop-blur-sm">
-          <p className="text-white text-xl font-bold mb-4">¿Tenés otra consulta?</p>
-          <p className="text-slate-400 mb-8 max-w-md mx-auto">
+        <div className="mt-16 text-center p-10 rounded-3xl border border-slate-200 dark:border-white/5 bg-slate-50 dark:bg-slate-900/30 backdrop-blur-sm">
+          <p className="text-slate-900 dark:text-white text-xl font-bold mb-4">¿Tenés otra consulta?</p>
+          <p className="text-slate-600 dark:text-slate-400 mb-8 max-w-md mx-auto">
             Estamos para responderte. Escribinos directamente y te contestamos lo antes posible.
           </p>
           <a 
             href="mailto:hello@bling.uy" 
-            className="inline-flex items-center gap-2 bg-white text-slate-950 font-black text-xs tracking-widest uppercase px-10 py-4 rounded-xl hover:bg-[#FFCC00] transition-all duration-300"
+            className="inline-flex items-center gap-2 bg-slate-900 dark:bg-white text-white dark:text-slate-950 font-black text-xs tracking-widest uppercase px-10 py-4 rounded-xl hover:bg-[#FFCC00] dark:hover:bg-[#FFCC00] hover:text-slate-900 dark:hover:text-slate-900 transition-all duration-300"
           >
             Contactar al equipo
           </a>

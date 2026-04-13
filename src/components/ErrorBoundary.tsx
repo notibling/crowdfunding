@@ -27,15 +27,15 @@ export class ErrorBoundary extends Component<Props, State> {
       return (
         <div className="min-h-screen bg-[#0f172a] flex items-center justify-center p-6 text-center">
           <div className="max-w-md">
-            <h1 className="text-white text-2xl font-black mb-4 uppercase tracking-tighter">
+            <h1 className="text-slate-900 dark:text-white text-2xl font-black mb-4 uppercase tracking-tighter">
               Algo no salió como esperábamos
             </h1>
-            <p className="text-slate-400 text-sm mb-8">
+            <p className="text-slate-600 dark:text-slate-400 text-sm mb-8">
               Estamos trabajando para que la experiencia sea fluida. Por favor, intenta recargar la página.
             </p>
             <button
               onClick={() => window.location.reload()}
-              className="bg-[#0070BA] text-white font-black text-xs tracking-widest uppercase px-8 py-4 rounded-xl hover:bg-white hover:text-[#0070BA] transition-all"
+              className="bg-[#0070BA] text-slate-900 dark:text-white font-black text-xs tracking-widest uppercase px-8 py-4 rounded-xl hover:bg-white hover:text-[#0070BA] transition-all"
             >
               Recargar Página
             </button>

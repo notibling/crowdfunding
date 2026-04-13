@@ -13,28 +13,28 @@ export function PaymentModal({ isOpen, onClose }: { isOpen: boolean, onClose: ()
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-130 flex items-center justify-center bg-slate-950/80 backdrop-blur-sm p-4"
+          className="fixed inset-0 z-130 flex items-center justify-center bg-white dark:bg-slate-950/80 backdrop-blur-sm p-4"
           onClick={onClose}
         >
           <motion.div
             initial={{ scale: 0.9, opacity: 0, y: 20 }}
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.9, opacity: 0, y: 20 }}
-            className="bg-[#0f172a] border border-white/10 w-full max-w-md rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh]"
+            className="bg-white dark:bg-slate-900 border border-slate-300 dark:border-white/10 w-full max-w-md rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh]"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Header */}
-            <div className="bg-[#1e293b] p-6 text-white flex justify-between items-center shrink-0 border-b border-white/5">
+            <div className="bg-slate-50 dark:bg-slate-800 p-6 text-slate-900 dark:text-white flex justify-between items-center shrink-0 border-b border-slate-200 dark:border-white/5">
               <div className="flex items-center gap-3">
                 <div className="bg-[#0070BA]/10 p-2 rounded-lg">
                   <PayPalIcon className="w-6 h-6 text-[#0070BA]" />
                 </div>
                 <div>
                   <h3 className="font-black text-xl tracking-tight uppercase leading-none">PayPal</h3>
-                  <p className="text-[10px] font-bold text-slate-500 tracking-widest uppercase mt-1">Colaboración Segura</p>
+                  <p className="text-[10px] font-bold text-slate-500 dark:text-slate-500 tracking-widest uppercase mt-1">Colaboración Segura</p>
                 </div>
               </div>
-              <button onClick={onClose} className="text-slate-500 hover:text-white transition-colors">
+              <button onClick={onClose} className="text-slate-500 dark:text-slate-500 hover:text-slate-900 dark:text-white transition-colors">
                 <X size={24} />
               </button>
             </div>
@@ -42,18 +42,18 @@ export function PaymentModal({ isOpen, onClose }: { isOpen: boolean, onClose: ()
             {/* Content - Scrollable */}
             <div className="p-8 overflow-y-auto custom-scrollbar">
               <div className="text-center mb-8">
-                <p className="text-slate-400 text-sm font-medium mb-6">
+                <p className="text-slate-600 dark:text-slate-400 text-sm font-medium mb-6">
                   Podés colaborar de forma segura utilizando tu cuenta de <strong>PayPal</strong> o tarjeta de crédito/débito:
                 </p>
                 
-                <div className="min-h-[200px] flex flex-col items-center justify-center bg-white rounded-2xl p-6 transition-all relative">
+                <div className="min-h-[200px] flex flex-col items-center justify-center bg-slate-50 dark:bg-slate-950/50 border border-slate-200 dark:border-white/5 rounded-2xl p-6 transition-all relative">
                   {!paypalClientId ? (
                     <div className="text-center p-6 bg-red-500/5 rounded-xl border border-red-500/20">
                       <p className="text-red-500 text-xs font-black uppercase mb-3 tracking-widest">Error de Configuración</p>
-                      <p className="text-slate-400 text-[11px] leading-relaxed mb-4">
+                      <p className="text-slate-600 dark:text-slate-400 text-[11px] leading-relaxed mb-4">
                         La credencial <code className="bg-red-500/10 px-1 rounded text-red-400">VITE_PAYPAL_CLIENT_ID</code> no se encuentra en el entorno de producción.
                       </p>
-                      <div className="text-left bg-slate-950/20 p-3 rounded-lg text-[9px] text-slate-500 font-mono">
+                      <div className="text-left bg-white dark:bg-slate-950/20 p-3 rounded-lg text-[9px] text-slate-500 dark:text-slate-500 font-mono">
                         <p className="mb-1">Solución:</p>
                         <p>1. Ir a Vercel Dashboard</p>
                         <p>2. Settings &rarr; Environment Variables</p>
@@ -112,18 +112,18 @@ export function PaymentModal({ isOpen, onClose }: { isOpen: boolean, onClose: ()
               </div>
 
               {/* Security Info */}
-              <div className="bg-white/5 rounded-xl p-4 border border-white/5 text-center mb-4">
+              <div className="bg-slate-100 dark:bg-white/5 rounded-xl p-4 border border-slate-200 dark:border-white/5 text-center mb-4">
                 <div className="flex items-center justify-center gap-4 opacity-50 mb-3">
                   <PayPalIcon className="w-6 h-6" />
-                  <span className="text-white font-black text-xs tracking-tighter uppercase">PayPal Secure Checkout</span>
+                  <span className="text-slate-900 dark:text-white font-black text-xs tracking-tighter uppercase">PayPal Secure Checkout</span>
                 </div>
-                <div className="flex items-center justify-center gap-2 text-slate-500">
+                <div className="flex items-center justify-center gap-2 text-slate-500 dark:text-slate-500">
                   <ShieldCheck size={14} className="text-[#0070BA]" />
                   <span className="text-[10px] font-bold uppercase tracking-wider">Protección al donante integrada</span>
                 </div>
               </div>
               
-              <p className="text-[10px] text-slate-500 text-center uppercase tracking-widest font-bold">
+              <p className="text-[10px] text-slate-500 dark:text-slate-500 text-center uppercase tracking-widest font-bold">
                 Tu apoyo nos permite seguir creando contenido independiente
               </p>
             </div>
